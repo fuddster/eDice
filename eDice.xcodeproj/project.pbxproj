@@ -14,6 +14,8 @@
 		0AC8E9311E1423B200912E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8E92F1E1423B200912E40 /* LaunchScreen.storyboard */; };
 		0AC8E93C1E1423B200912E40 /* eDiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E93B1E1423B200912E40 /* eDiceTests.swift */; };
 		0AC8E9471E1423B200912E40 /* eDiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9461E1423B200912E40 /* eDiceUITests.swift */; };
+		0AC8E9571E17961100912E40 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9561E17961100912E40 /* Die.swift */; };
+		0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9581E179F3600912E40 /* DieTester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		0AC8E9421E1423B200912E40 /* eDiceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eDiceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC8E9461E1423B200912E40 /* eDiceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eDiceUITests.swift; sourceTree = "<group>"; };
 		0AC8E9481E1423B200912E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AC8E9561E17961100912E40 /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		0AC8E9581E179F3600912E40 /* DieTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieTester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				0AC8E92D1E1423B200912E40 /* Assets.xcassets */,
 				0AC8E92F1E1423B200912E40 /* LaunchScreen.storyboard */,
 				0AC8E9321E1423B200912E40 /* Info.plist */,
+				0AC8E9561E17961100912E40 /* Die.swift */,
 			);
 			path = eDice;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC8E93B1E1423B200912E40 /* eDiceTests.swift */,
+				0AC8E9581E179F3600912E40 /* DieTester.swift */,
 				0AC8E93D1E1423B200912E40 /* Info.plist */,
 			);
 			path = eDiceTests;
@@ -261,6 +267,7 @@
 			files = (
 				0AC8E9291E1423B200912E40 /* ViewController.swift in Sources */,
 				0AC8E9271E1423B200912E40 /* AppDelegate.swift in Sources */,
+				0AC8E9571E17961100912E40 /* Die.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC8E93C1E1423B200912E40 /* eDiceTests.swift in Sources */,
+				0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +513,7 @@
 				0AC8E94D1E1423B200912E40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AC8E94E1E1423B200912E40 /* Build configuration list for PBXNativeTarget "eDiceTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +522,7 @@
 				0AC8E9501E1423B200912E40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AC8E9511E1423B200912E40 /* Build configuration list for PBXNativeTarget "eDiceUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +531,7 @@
 				0AC8E9531E1423B200912E40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

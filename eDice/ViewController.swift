@@ -10,10 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var die1: UIImageView!
+    @IBOutlet weak var die2: UIImageView!
+    @IBOutlet weak var die3: UIImageView!
+    @IBOutlet weak var die4: UIImageView!
+    @IBOutlet weak var die5: UIImageView!
+    @IBOutlet weak var die6: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        println("Making a change again")
+        print("Making a change again")
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +28,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func rollButton(_ sender: UIButton) {
+    }
 
 }
 
