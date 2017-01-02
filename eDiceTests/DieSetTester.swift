@@ -61,7 +61,7 @@ class DieSetTester: XCTestCase {
         let ds2 = DieSet(fromArr: [6, 4, 3, 2, 1, 1])
         XCTAssertEqual(200, ds2.score())
         
-        let ds3 = DieSet(fromArr: [2, 1, 2, 2, 1, 2])
+        let ds3 = DieSet(fromArr: [2, 1, 2, 3, 1, 4])
         XCTAssertEqual(200, ds3.score())
     }
     
@@ -72,7 +72,7 @@ class DieSetTester: XCTestCase {
         let ds2 = DieSet(fromArr: [6, 4, 3, 2, 5, 5])
         XCTAssertEqual(100, ds2.score())
         
-        let ds3 = DieSet(fromArr: [2, 5, 2, 2, 5, 2])
+        let ds3 = DieSet(fromArr: [6, 5, 2, 2, 5, 6])
         XCTAssertEqual(100, ds3.score())
     }
     
@@ -156,8 +156,13 @@ class DieSetTester: XCTestCase {
         XCTAssertEqual(2400, ds6.score())
     }
 
+    func testStraightScore() {
+        let ds = DieSet(fromArr: [1, 2, 3, 4, 5, 6])
+        XCTAssertEqual(1500, ds.score())
+    }
+
     func TestMixedScores() {
-        let ds1 = DieSet(fromArr: [1, 2, 3, 4, 5, 6])
+        let ds1 = DieSet(fromArr: [1, 2, 3, 3, 5, 6])
         XCTAssertEqual(150, ds1.score())
         
         let ds2 = DieSet(fromArr: [1, 2, 2, 2, 5, 6])
@@ -171,5 +176,25 @@ class DieSetTester: XCTestCase {
         
         let ds5 = DieSet(fromArr: [4, 4, 4, 6, 6, 6])
         XCTAssertEqual(1000, ds5.score())
+    }
+    
+    func testCountNum() {
+        let ds1 = DieSet(fromArr: [1, 2, 3, 4, 5, 6])
+        XCTAssertEqual(1, ds1.countNum(1))
+        
+        let ds2 = DieSet(fromArr: [1, 2, 2, 3, 4, 5])
+        XCTAssertEqual(2, ds2.countNum(2))
+        
+        let ds3 = DieSet(fromArr: [1, 2, 3, 3, 3, 4])
+        XCTAssertEqual(3, ds3.countNum(3))
+        
+        let ds4 = DieSet(fromArr: [4, 4, 4, 4, 5, 6])
+        XCTAssertEqual(4, ds4.countNum(4))
+        
+        let ds5 = DieSet(fromArr: [5, 5, 5, 5, 5, 6])
+        XCTAssertEqual(5, ds5.countNum(5))
+        
+        let ds6 = DieSet(fromArr: [6, 6, 6, 6, 6, 6])
+        XCTAssertEqual(6, ds6.countNum(6))
     }
 }
