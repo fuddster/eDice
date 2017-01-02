@@ -10,18 +10,25 @@
 import UIKit
 
 class Die {
-    let dieAssets = [nil, "die_1", "die_2", "die_3", "die_4", "die_5", "die_6"]
+    static let dieAssets = [nil, "die_1", "die_2", "die_3", "die_4", "die_5", "die_6"]
     var value : Int
     var frozen : Bool = false
-    
+
     init() {
-        value = 1
-        self.roll()
+        self.value = 1
+    }
+
+    init(value: Int) {
+        self.value = value
     }
 
     func roll() {
         if (!frozen) {
             value = Int(arc4random_uniform(6) + 1)
         }
+    }
+    
+    func score() -> Int {
+        return -1
     }
 }

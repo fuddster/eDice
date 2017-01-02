@@ -17,10 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var die5: UIImageView!
     @IBOutlet weak var die6: UIImageView!
 
+    var dieSet = [Die]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("Making a change again")
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +32,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButton(_ sender: UIButton) {
+        for d in dieSet {
+            d.roll()
+        }
+        updateDieView()
     }
 
+    func updateDieView() {
+        die1.image = UIImage(named: Die.dieAssets[dieSet[0].value]!)
+        die2.image = UIImage(named: Die.dieAssets[dieSet[1].value]!)
+        die3.image = UIImage(named: Die.dieAssets[dieSet[2].value]!)
+        die4.image = UIImage(named: Die.dieAssets[dieSet[3].value]!)
+        die5.image = UIImage(named: Die.dieAssets[dieSet[4].value]!)
+        die6.image = UIImage(named: Die.dieAssets[dieSet[5].value]!)
+    }
 }
 

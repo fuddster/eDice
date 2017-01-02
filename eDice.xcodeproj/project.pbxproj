@@ -16,6 +16,8 @@
 		0AC8E9471E1423B200912E40 /* eDiceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9461E1423B200912E40 /* eDiceUITests.swift */; };
 		0AC8E9571E17961100912E40 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9561E17961100912E40 /* Die.swift */; };
 		0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9581E179F3600912E40 /* DieTester.swift */; };
+		0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95A1E19A73800912E40 /* DieSet.swift */; };
+		0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		0AC8E9481E1423B200912E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC8E9561E17961100912E40 /* Die.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		0AC8E9581E179F3600912E40 /* DieTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieTester.swift; sourceTree = "<group>"; };
+		0AC8E95A1E19A73800912E40 /* DieSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSet.swift; sourceTree = "<group>"; };
+		0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSetTester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				0AC8E92F1E1423B200912E40 /* LaunchScreen.storyboard */,
 				0AC8E9321E1423B200912E40 /* Info.plist */,
 				0AC8E9561E17961100912E40 /* Die.swift */,
+				0AC8E95A1E19A73800912E40 /* DieSet.swift */,
 			);
 			path = eDice;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			children = (
 				0AC8E93B1E1423B200912E40 /* eDiceTests.swift */,
 				0AC8E9581E179F3600912E40 /* DieTester.swift */,
+				0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */,
 				0AC8E93D1E1423B200912E40 /* Info.plist */,
 			);
 			path = eDiceTests;
@@ -266,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC8E9291E1423B200912E40 /* ViewController.swift in Sources */,
+				0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */,
 				0AC8E9271E1423B200912E40 /* AppDelegate.swift in Sources */,
 				0AC8E9571E17961100912E40 /* Die.swift in Sources */,
 			);
@@ -275,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */,
 				0AC8E93C1E1423B200912E40 /* eDiceTests.swift in Sources */,
 				0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */,
 			);
