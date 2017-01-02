@@ -19,16 +19,16 @@ class Die {
     }
 
     init(value: Int) {
-        self.value = value
+        if ((value > 0) && (value < 7)) {
+            self.value = value
+        } else {
+            self.value = 1
+        }
     }
 
     func roll() {
         if (!frozen) {
             value = Int(arc4random_uniform(6) + 1)
         }
-    }
-    
-    func score() -> Int {
-        return -1
     }
 }

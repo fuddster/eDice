@@ -19,10 +19,19 @@ class DieSet {
         dice.append(Die()) // Die 5
         dice.append(Die()) // Die 6
     }
-    
+
+    init(withNumOfDie numOfDie: Int) {
+        
+    }
+
     init(fromArr arr: [Int] ) {
         for d in arr {
             dice.append(Die(value: d))
         }
     }
+
+    func score() -> Int {
+        return -1
+    }
+
 }

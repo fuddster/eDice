@@ -17,7 +17,43 @@ class DieTester: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
+
+    func testInitWithoutValue() {
+        let d = Die()
+        
+        XCTAssertEqual(1, d.value)
+    }
+
+    func testInitWithValue() {
+        let d1 = Die(value: 1)
+        let d2 = Die(value: 2)
+        let d3 = Die(value: 3)
+        let d4 = Die(value: 4)
+        let d5 = Die(value: 5)
+        let d6 = Die(value: 6)
+
+        XCTAssertEqual(1, d1.value)
+        XCTAssertEqual(2, d2.value)
+        XCTAssertEqual(3, d3.value)
+        XCTAssertEqual(4, d4.value)
+        XCTAssertEqual(5, d5.value)
+        XCTAssertEqual(6, d6.value)
+    }
+
+    func testInitOutOfRange() {
+        let neg = Die(value: -1)
+        let zero = Die(value: 0)
+        let eight = Die(value: 8)
+        let hundred = Die(value: 100)
+        let wayneg = Die(value: -9999)
+        
+        XCTAssertEqual(1, neg.value)
+        XCTAssertEqual(1, zero.value)
+        XCTAssertEqual(1, eight.value)
+        XCTAssertEqual(1, hundred.value)
+        XCTAssertEqual(1, wayneg.value)
+    }
+
     func testRollDie() {
         let d = Die()
         d.roll()
