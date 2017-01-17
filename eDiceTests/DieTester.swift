@@ -73,32 +73,57 @@ class DieTester: XCTestCase {
         }
     }
 
-    func testDieAssetNamesNotNil() {
+    func testNormalDieAssetNamesNotNil() {
         // test that assets are not nil
-        XCTAssertNotNil(Die.dieAssets[1], "Asset name for die 1 is nil")
-        XCTAssertNotNil(Die.dieAssets[2], "Asset name for die 2 is nil")
-        XCTAssertNotNil(Die.dieAssets[3], "Asset name for die 3 is nil")
-        XCTAssertNotNil(Die.dieAssets[4], "Asset name for die 4 is nil")
-        XCTAssertNotNil(Die.dieAssets[5], "Asset name for die 5 is nil")
-        XCTAssertNotNil(Die.dieAssets[6], "Asset name for die 6 is nil")
+        XCTAssertNotNil(Die.normalDieAssets[1], "Asset name for die 1 is nil")
+        XCTAssertNotNil(Die.normalDieAssets[2], "Asset name for die 2 is nil")
+        XCTAssertNotNil(Die.normalDieAssets[3], "Asset name for die 3 is nil")
+        XCTAssertNotNil(Die.normalDieAssets[4], "Asset name for die 4 is nil")
+        XCTAssertNotNil(Die.normalDieAssets[5], "Asset name for die 5 is nil")
+        XCTAssertNotNil(Die.normalDieAssets[6], "Asset name for die 6 is nil")
     }
     
-    func testDieAssetNameZeroIsNil() {
+    func testNormalDieAssetNameZeroIsNil() {
         // test that dieAsset[0] IS nil
-        XCTAssertNil(Die.dieAssets[0], "Asset[0] should be nil.")
+        XCTAssertNil(Die.normalDieAssets[0], "Asset[0] should be nil.")
     }
 
-    func testDieAssetsExist() {
+    func testNormalDieAssetsExist() {
         // test assets exist in project
-        XCTAssertNotNil(UIImage(named:Die.dieAssets[1]!), "Asset for die 1 is nil")
-        XCTAssertNotNil(UIImage(named:Die.dieAssets[2]!), "Asset for die 2 is nil")
-        XCTAssertNotNil(UIImage(named:Die.dieAssets[3]!), "Asset for die 3 is nil")
-        XCTAssertNotNil(UIImage(named:Die.dieAssets[4]!), "Asset for die 4 is nil")
-        XCTAssertNotNil(UIImage(named:Die.dieAssets[5]!), "Asset for die 5 is nil")
-        XCTAssertNotNil(UIImage(named:Die.dieAssets[6]!), "Asset for die 6 is nil")
+        XCTAssertNotNil(UIImage(named:Die.normalDieAssets[1]!), "Asset for die 1 is nil")
+        XCTAssertNotNil(UIImage(named:Die.normalDieAssets[2]!), "Asset for die 2 is nil")
+        XCTAssertNotNil(UIImage(named:Die.normalDieAssets[3]!), "Asset for die 3 is nil")
+        XCTAssertNotNil(UIImage(named:Die.normalDieAssets[4]!), "Asset for die 4 is nil")
+        XCTAssertNotNil(UIImage(named:Die.normalDieAssets[5]!), "Asset for die 5 is nil")
+        XCTAssertNotNil(UIImage(named:Die.normalDieAssets[6]!), "Asset for die 6 is nil")
     }
     
-    func testFreeze() {
+    func testSelectedDieAssetNamesNotNil() {
+        // test that assets are not nil
+        XCTAssertNotNil(Die.selectedDieAssets[1], "Asset name for die 1 is nil")
+        XCTAssertNotNil(Die.selectedDieAssets[2], "Asset name for die 2 is nil")
+        XCTAssertNotNil(Die.selectedDieAssets[3], "Asset name for die 3 is nil")
+        XCTAssertNotNil(Die.selectedDieAssets[4], "Asset name for die 4 is nil")
+        XCTAssertNotNil(Die.selectedDieAssets[5], "Asset name for die 5 is nil")
+        XCTAssertNotNil(Die.selectedDieAssets[6], "Asset name for die 6 is nil")
+    }
+    
+    func testSelectedDieAssetNameZeroIsNil() {
+        // test that dieAsset[0] IS nil
+        XCTAssertNil(Die.selectedDieAssets[0], "Asset[0] should be nil.")
+    }
+    
+    func testSelectedDieAssetsExist() {
+        // test assets exist in project
+        XCTAssertNotNil(UIImage(named:Die.selectedDieAssets[1]!), "Asset for die 1 is nil")
+        XCTAssertNotNil(UIImage(named:Die.selectedDieAssets[2]!), "Asset for die 2 is nil")
+        XCTAssertNotNil(UIImage(named:Die.selectedDieAssets[3]!), "Asset for die 3 is nil")
+        XCTAssertNotNil(UIImage(named:Die.selectedDieAssets[4]!), "Asset for die 4 is nil")
+        XCTAssertNotNil(UIImage(named:Die.selectedDieAssets[5]!), "Asset for die 5 is nil")
+        XCTAssertNotNil(UIImage(named:Die.selectedDieAssets[6]!), "Asset for die 6 is nil")
+    }
+    
+    func testFreezeVar() {
         let d = Die()
         let oldValue = d.value
         d.frozen = true
@@ -106,6 +131,49 @@ class DieTester: XCTestCase {
         
         // Value should not change if the die is frozen
         XCTAssertEqual(oldValue, d.value)
+        d.roll()
+        XCTAssertEqual(oldValue, d.value)
+        d.roll()
+        XCTAssertEqual(oldValue, d.value)
     }
 
+    func testFreezeFunc() {
+        let d = Die()
+        let oldValue = d.value
+        d.freeze()
+        XCTAssertEqual(d.frozen, true)
+        d.roll()
+        
+        // Value should not change if the die is frozen
+        XCTAssertEqual(oldValue, d.value)
+        d.roll()
+        XCTAssertEqual(oldValue, d.value)
+        d.roll()
+        XCTAssertEqual(oldValue, d.value)
+    }
+
+    func testUnFreezeFunc() {
+        let d = Die()
+        let oldValue = d.value
+        d.frozen = true
+        d.unfreeze()
+        XCTAssertEqual(d.frozen, false)
+        d.roll()
+
+        // Value should not change if the die is frozen
+        XCTAssertNotEqual(oldValue, d.value)
+        d.roll()
+        XCTAssertNotEqual(oldValue, d.value)
+        d.roll()
+        XCTAssertNotEqual(oldValue, d.value)
+    }
+    
+    func testToggleFreezeFunc() {
+        let d = Die()
+        XCTAssertEqual(d.frozen, false)
+        d.toggleFrozen()
+        XCTAssertEqual(d.frozen, true)
+        d.toggleFrozen()
+        XCTAssertEqual(d.frozen, false)
+    }
 }

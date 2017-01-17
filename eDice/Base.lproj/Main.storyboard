@@ -35,41 +35,65 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-a7-wgA" userLabel="Dice">
                                         <rect key="frame" x="0.0" y="56" width="343" height="49"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die_1" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-gC-VJM">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_1" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-gC-VJM">
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="eWW-gC-VJM" secondAttribute="height" multiplier="1:1" id="2kX-h4-Qk9"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="6kD-8E-0cQ" appends="YES" id="hYK-bo-HGf"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die_2" translatesAutoresizingMaskIntoConstraints="NO" id="diX-vB-zIP">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_2" translatesAutoresizingMaskIntoConstraints="NO" id="diX-vB-zIP">
                                                 <rect key="frame" x="59" y="0.0" width="48.5" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="diX-vB-zIP" secondAttribute="height" multiplier="1:1" id="R9w-a4-g6o"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="B1C-vf-nQN" appends="YES" id="cy7-Vj-dHH"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die_3" translatesAutoresizingMaskIntoConstraints="NO" id="n0F-eD-9AN">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_3" translatesAutoresizingMaskIntoConstraints="NO" id="n0F-eD-9AN">
                                                 <rect key="frame" x="117.5" y="0.0" width="49" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="n0F-eD-9AN" secondAttribute="height" multiplier="1:1" id="aFU-ac-0BR"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Y72-xG-xuQ" appends="YES" id="d0V-ps-dM7"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die_4" translatesAutoresizingMaskIntoConstraints="NO" id="Y60-hO-KDZ">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_4" translatesAutoresizingMaskIntoConstraints="NO" id="Y60-hO-KDZ">
                                                 <rect key="frame" x="176.5" y="0.0" width="49" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Y60-hO-KDZ" secondAttribute="height" multiplier="1:1" id="gzf-s8-00t"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="oG4-Qm-GIg" appends="YES" id="pLx-QK-Nv2"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die_5" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-li-TkS">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_5" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-li-TkS">
                                                 <rect key="frame" x="235.5" y="0.0" width="48.5" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5cl-li-TkS" secondAttribute="height" multiplier="1:1" id="MoH-7B-bsw"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="b1u-jY-PSy" appends="YES" id="0TS-ol-fBb"/>
+                                                </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="die_6" translatesAutoresizingMaskIntoConstraints="NO" id="Nv3-ad-D6L">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_6" translatesAutoresizingMaskIntoConstraints="NO" id="Nv3-ad-D6L">
                                                 <rect key="frame" x="294" y="0.0" width="49" height="49"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Nv3-ad-D6L" secondAttribute="height" multiplier="1:1" id="Pj7-YZ-kVL"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="G4c-YG-Pn2" appends="YES" id="tud-Fi-0Rj"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -123,16 +147,46 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6kD-8E-0cQ" userLabel="Die 1 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="die1Tapped:" destination="BYZ-38-t0r" id="DBm-s2-luQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="B1C-vf-nQN" userLabel="Die 2 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="die2Tapped:" destination="BYZ-38-t0r" id="9zF-8f-hvb"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Y72-xG-xuQ" userLabel="Die 3 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="die3Tapped:" destination="BYZ-38-t0r" id="3A5-8P-aJ0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="oG4-Qm-GIg" userLabel="Die 4 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="die4Tapped:" destination="BYZ-38-t0r" id="iXk-91-l9K"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="b1u-jY-PSy" userLabel="Die 5 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="die5Tapped:" destination="BYZ-38-t0r" id="HhY-fw-RaG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="G4c-YG-Pn2" userLabel="Die 6 Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="die6Tapped:" destination="BYZ-38-t0r" id="42n-MY-sc6"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>
     </scenes>
     <resources>
-        <image name="die_1" width="557" height="557"/>
-        <image name="die_2" width="557" height="557"/>
-        <image name="die_3" width="1024" height="1024"/>
-        <image name="die_4" width="557" height="557"/>
-        <image name="die_5" width="600" height="600"/>
-        <image name="die_6" width="557" height="557"/>
+        <image name="red_1" width="600" height="600"/>
+        <image name="red_2" width="600" height="600"/>
+        <image name="red_3" width="600" height="600"/>
+        <image name="red_4" width="600" height="600"/>
+        <image name="red_5" width="600" height="600"/>
+        <image name="red_6" width="600" height="600"/>
     </resources>
 </document>

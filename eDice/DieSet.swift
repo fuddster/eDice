@@ -12,12 +12,12 @@ class DieSet {
     var dice = [Die]()
     
     init() {
-        dice.append(Die()) // Die 1
-        dice.append(Die()) // Die 2
-        dice.append(Die()) // Die 3
-        dice.append(Die()) // Die 4
-        dice.append(Die()) // Die 5
-        dice.append(Die()) // Die 6
+        dice.append(Die(value: 1)) // Die 1
+        dice.append(Die(value: 2)) // Die 2
+        dice.append(Die(value: 3)) // Die 3
+        dice.append(Die(value: 4)) // Die 4
+        dice.append(Die(value: 5)) // Die 5
+        dice.append(Die(value: 6)) // Die 6
     }
 
     init(withNumOfDie numOfDie: Int) {

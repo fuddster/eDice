@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import eDice
 
 class eDiceUITests: XCTestCase {
         
@@ -33,4 +34,8 @@ class eDiceUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+//    func testFreeze() {
+//        XCUIApplication().images["red_1"].tap()
+//
+//    }
 }

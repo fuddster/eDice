@@ -40,14 +40,81 @@ class ViewController: UIViewController {
         score.text = String(s)
     }
 
-    func updateDieView() {
+    @IBAction func die1Tapped(_ sender: Any) {
+        print("Die 1 Tapped")
+        ds.dice[0].toggleFrozen()
+        updateDieView()
+    }
+
+    @IBAction func die2Tapped(_ sender: Any) {
+        print("Die 2 Tapped")
+        ds.dice[1].toggleFrozen()
+        updateDieView()
+    }
+
+    @IBAction func die3Tapped(_ sender: Any) {
+        print("Die 3 Tapped")
+        ds.dice[2].toggleFrozen()
+        updateDieView()
+    }
+
+    @IBAction func die4Tapped(_ sender: Any) {
+        print("Die 4 Tapped")
+        ds.dice[3].toggleFrozen()
+        updateDieView()
+    }
+
+    @IBAction func die5Tapped(_ sender: Any) {
+        print("Die 5 Tapped")
+        ds.dice[4].toggleFrozen()
+        updateDieView()
+    }
+
+    @IBAction func die6Tapped(_ sender: Any) {
+        print("Die 6 Tapped")
+        ds.dice[5].toggleFrozen()
+        updateDieView()
+    }
+
+    func updateDieView()
+    {
         var dice = ds.dice
-        die1.image = UIImage(named: Die.dieAssets[dice[0].value]!)
-        die2.image = UIImage(named: Die.dieAssets[dice[1].value]!)
-        die3.image = UIImage(named: Die.dieAssets[dice[2].value]!)
-        die4.image = UIImage(named: Die.dieAssets[dice[3].value]!)
-        die5.image = UIImage(named: Die.dieAssets[dice[4].value]!)
-        die6.image = UIImage(named: Die.dieAssets[dice[5].value]!)
+
+        if (dice[0].frozen) {
+            die1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
+        } else {
+            die1.image = UIImage(named: Die.normalDieAssets[dice[0].value]!)
+        }
+
+        if (dice[1].frozen) {
+            die2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
+        } else {
+            die2.image = UIImage(named: Die.normalDieAssets[dice[1].value]!)
+        }
+
+        if (dice[2].frozen) {
+            die3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
+        } else {
+            die3.image = UIImage(named: Die.normalDieAssets[dice[2].value]!)
+        }
+
+        if (dice[3].frozen) {
+            die4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
+        } else {
+            die4.image = UIImage(named: Die.normalDieAssets[dice[3].value]!)
+        }
+
+        if (dice[4].frozen) {
+            die5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
+        } else {
+            die5.image = UIImage(named: Die.normalDieAssets[dice[4].value]!)
+        }
+
+        if (dice[5].frozen) {
+            die6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
+        } else {
+            die6.image = UIImage(named: Die.normalDieAssets[dice[5].value]!)
+        }
     }
 }
 

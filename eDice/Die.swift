@@ -10,7 +10,8 @@
 import UIKit
 
 class Die {
-    static let dieAssets = [nil, "die_1", "die_2", "die_3", "die_4", "die_5", "die_6"]
+    static let normalDieAssets = [nil, "red_1", "red_2", "red_3", "red_4", "red_5", "red_6"]
+    static let selectedDieAssets = [nil, "grey_1", "grey_2", "grey_3", "grey_4", "grey_5", "grey_6"]
     var value : Int
     var frozen : Bool = false
 
@@ -29,6 +30,22 @@ class Die {
     func roll() {
         if (!frozen) {
             value = Int(arc4random_uniform(6) + 1)
+        }
+    }
+    
+    func freeze() {
+        frozen = true;
+    }
+    
+    func unfreeze() {
+        frozen = false;
+    }
+    
+    func toggleFrozen() {
+        if (frozen) {
+            frozen = false
+        } else {
+            frozen = true
         }
     }
 }
