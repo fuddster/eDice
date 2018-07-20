@@ -1,0 +1,121 @@
+eDice
+
+Classes:
+
+    Die
+    DieSet - set of Die
+    Player
+        name
+        score
+        type
+        skill
+    Game
+        Set of players
+        Track scores
+        Track turns
+    Turn
+        Track turn score
+        Track DieSet
+        Determine Dice status
+        Return score (0+)
+
+Screens
+
+    Splash
+    Menu
+    Game
+
+    Menu
+        Start Game (Pick players / Win type (10K/10 turns/etc))
+        Options
+
+    Start Game
+        Pick # of players (Computer/Human/Solo?)
+
+    Options
+        Pick rules
+        Sounds?
+
+    Game
+        Display game and play
+
+
+
+Functionality
+
+    Start Game (Start with solo / play to 10K)
+        Create Game object
+            Set players = 1
+            create Player object
+                set Player.type = human
+                set Player.score = 0
+            add Player to Players Array
+            Set turnNumber = 1
+            Create die set (6)
+            gameOver = false
+            while (!gameOver)
+                For each player
+                    Create Turn object
+                        turnOver = false
+                    Turn.play
+                        While (!turnOver)
+                            set turnScore to 0
+                            Roll unfrozen dice
+                            Calculate total score for dice
+                            If (calculated total score == 0)
+                                display alert
+                                turnOver = true
+                            Display total score for dice
+                            Let user pick dice (at least one)
+                            Highlight selected dice
+                            Calculate user score
+                            Display calculated user score
+                            User picks Bank / Roll
+                            If Bank
+                                Add calculated user score to player's score
+                                turnOver = true
+                            else if Roll
+                                Freeze selected dice
+                                if all dice frozen
+                                    unfreeze all dice
+                                Add calculated user score to turn score
+                        unfreeze all dice
+                check for game over
+                turnNumber++
+                display new turnNumber (connected)
+
+
+
+Model
+    Game - store game info
+        players - array of players
+        numOfRounds
+
+    Player - store player info
+        roundScores = []
+        turnScores = []
+        type - human / computer
+        name
+        skillLevel
+
+View
+    Start/Go button
+    Dice
+        View dice
+        Select dice
+    Roll button
+    Bank button
+    Scores
+    Turn Number
+    Add human player
+    Add computer player
+
+Controller
+    Start/G button - start game (hide start button, show game screen)
+        for each round
+            for each player
+                player.turn() or turn()
+    Roll button - randomize unfrozen dice / if bust then move to next player
+    Dice click - toggle freeze / unfreeze
+    Bank button - update players score / move to next player - take turnScores sum and add to roundScores
+    totalScore() - add up turn scores

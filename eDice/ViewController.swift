@@ -17,12 +17,31 @@ class ViewController: UIViewController {
     @IBOutlet weak var die5: UIImageView!
     @IBOutlet weak var die6: UIImageView!
     @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var addHumanButton: UIButton!
+    @IBOutlet weak var addComputerButton: UIButton!
+    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var round: UILabel!
+    @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var diceButtons: UIStackView!
+    @IBOutlet weak var addPlayerLabel: UILabel!
 
     var ds = DieSet()
+    
+    var g = Game()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        ds.dice[0].button = die1
+        ds.dice[1].button = die2
+        ds.dice[2].button = die3
+        ds.dice[3].button = die4
+        ds.dice[4].button = die5
+        ds.dice[5].button = die6
+        
+        for die in ds.dice {
+            die.button.isUserInteractionEnabled = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +50,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButton(_ sender: UIButton) {
+        if (ds.allFrozen()) {
+            ds.unFreezeAll()
+            g.currentPlayer?.turnScores.append(ds.score())
+        }
+
         for d in ds.dice {
+            if (d.frozen) {
+                d.button.isUserInteractionEnabled = false
+            } else {
+                d.button.isUserInteractionEnabled = true
+            }
             d.roll()
         }
         updateDieView()
@@ -40,38 +69,61 @@ class ViewController: UIViewController {
         score.text = String(s)
     }
 
+    @IBAction func go(_ sender: UIButton) {
+        if (g.players.count == 0) {
+            // Message that there are no players
+            print("No GO!  No players")
+        } else {
+            g.go()
+            print("Game on!")
+            print("Num of players", g.players.count)
+            goButton.isHidden = true
+            addHumanButton.isHidden = true
+            addComputerButton.isHidden = true
+            addPlayerLabel.isHidden = true
+            round.text = String(g.currentRound)
+            playerName.text = g.getCurrentPlayerName()
+        }
+    }
+
+    @IBAction func addHuman(_ sender: UIButton) {
+        g.addHumanPlayer()
+        print("Added Human Player")
+        print("Num of players", g.players.count)
+    }
+
+    @IBAction func addComputer(_ sender: UIButton) {
+        g.addComputerPlayer()
+        print("Added Human Player")
+        print("Num of players", g.players.count)
+    }
+    
     @IBAction func die1Tapped(_ sender: Any) {
-        print("Die 1 Tapped")
         ds.dice[0].toggleFrozen()
         updateDieView()
     }
 
     @IBAction func die2Tapped(_ sender: Any) {
-        print("Die 2 Tapped")
         ds.dice[1].toggleFrozen()
         updateDieView()
     }
 
     @IBAction func die3Tapped(_ sender: Any) {
-        print("Die 3 Tapped")
         ds.dice[2].toggleFrozen()
         updateDieView()
     }
 
     @IBAction func die4Tapped(_ sender: Any) {
-        print("Die 4 Tapped")
         ds.dice[3].toggleFrozen()
         updateDieView()
     }
 
     @IBAction func die5Tapped(_ sender: Any) {
-        print("Die 5 Tapped")
         ds.dice[4].toggleFrozen()
         updateDieView()
     }
 
     @IBAction func die6Tapped(_ sender: Any) {
-        print("Die 6 Tapped")
         ds.dice[5].toggleFrozen()
         updateDieView()
     }

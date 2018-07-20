@@ -34,24 +34,27 @@ class DieSet {
         }
     }
 
-    func countNum(_ num: Int) -> Int {
+    func countNum(_ num: Int, _ countAll: Bool) -> Int {
         var count = 0
+        
         for d in dice {
             if (d.value == num) {
-                count += 1
+                if (countAll || (d.frozen == false)) {
+                    count += 1
+                }
             }
         }
         
         return count
     }
 
-    func score() -> Int {
-        let n1 = countNum(1)
-        let n2 = countNum(2)
-        let n3 = countNum(3)
-        let n4 = countNum(4)
-        let n5 = countNum(5)
-        let n6 = countNum(6)
+    func score(_ countAll: Bool = true) -> Int {
+        let n1 = countNum(1, countAll)
+        let n2 = countNum(2, countAll)
+        let n3 = countNum(3, countAll)
+        let n4 = countNum(4, countAll)
+        let n5 = countNum(5, countAll)
+        let n6 = countNum(6, countAll)
         
         var score = 0
 
@@ -95,4 +98,25 @@ class DieSet {
         return score
     }
 
+    func freezeAll() {
+        for d in dice {
+            d.frozen = true
+        }
+    }
+    
+    func unFreezeAll() {
+        for d in dice {
+            d.frozen = false
+        }
+    }
+    
+    func allFrozen() -> Bool {
+        var rollAll: Bool = false
+        for d in dice {
+            if (!d.frozen) {
+                rollAll = false
+            }
+        }
+        return rollAll
+    }
 }

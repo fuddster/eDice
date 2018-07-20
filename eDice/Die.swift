@@ -12,11 +12,14 @@ import UIKit
 class Die {
     static let normalDieAssets = [nil, "red_1", "red_2", "red_3", "red_4", "red_5", "red_6"]
     static let selectedDieAssets = [nil, "grey_1", "grey_2", "grey_3", "grey_4", "grey_5", "grey_6"]
-    var value : Int
-    var frozen : Bool = false
+    var value: Int
+    var frozen: Bool = false
+    var selected: Bool = false
+    var button: UIImageView
 
     init() {
         self.value = 1
+        self.button = UIImageView()
     }
 
     init(value: Int) {
@@ -25,6 +28,7 @@ class Die {
         } else {
             self.value = 1
         }
+        self.button = UIImageView()
     }
 
     func roll() {

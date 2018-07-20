@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A677DAF1EB767470071CD81 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A677DAE1EB767470071CD81 /* ToDo.txt */; };
+		0A722BE81EBB55DD00DD310B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A722BE71EBB55DD00DD310B /* Player.swift */; };
+		0A722BEC1EBE7EE700DD310B /* PlayerTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A722BEB1EBE7EE700DD310B /* PlayerTester.swift */; };
 		0AC8E9271E1423B200912E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9261E1423B200912E40 /* AppDelegate.swift */; };
 		0AC8E9291E1423B200912E40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9281E1423B200912E40 /* ViewController.swift */; };
 		0AC8E92C1E1423B200912E40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8E92A1E1423B200912E40 /* Main.storyboard */; };
@@ -18,6 +21,8 @@
 		0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9581E179F3600912E40 /* DieTester.swift */; };
 		0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95A1E19A73800912E40 /* DieSet.swift */; };
 		0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */; };
+		0AF668DA1E3DB0310021B744 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF668D91E3DB0310021B744 /* Turn.swift */; };
+		0AF668DC1E3DB3A30021B744 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF668DB1E3DB3A30021B744 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A677DAE1EB767470071CD81 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
+		0A722BE71EBB55DD00DD310B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0A722BEB1EBE7EE700DD310B /* PlayerTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTester.swift; sourceTree = "<group>"; };
 		0AC8E9231E1423B200912E40 /* eDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC8E9261E1423B200912E40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC8E9281E1423B200912E40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +63,8 @@
 		0AC8E9581E179F3600912E40 /* DieTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieTester.swift; sourceTree = "<group>"; };
 		0AC8E95A1E19A73800912E40 /* DieSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSet.swift; sourceTree = "<group>"; };
 		0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSetTester.swift; sourceTree = "<group>"; };
+		0AF668D91E3DB0310021B744 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		0AF668DB1E3DB3A30021B744 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +117,16 @@
 			children = (
 				0AC8E9261E1423B200912E40 /* AppDelegate.swift */,
 				0AC8E9281E1423B200912E40 /* ViewController.swift */,
+				0AF668D91E3DB0310021B744 /* Turn.swift */,
+				0AF668DB1E3DB3A30021B744 /* Game.swift */,
+				0A722BE71EBB55DD00DD310B /* Player.swift */,
 				0AC8E92A1E1423B200912E40 /* Main.storyboard */,
 				0AC8E92D1E1423B200912E40 /* Assets.xcassets */,
 				0AC8E92F1E1423B200912E40 /* LaunchScreen.storyboard */,
 				0AC8E9321E1423B200912E40 /* Info.plist */,
 				0AC8E9561E17961100912E40 /* Die.swift */,
 				0AC8E95A1E19A73800912E40 /* DieSet.swift */,
+				0A677DAE1EB767470071CD81 /* ToDo.txt */,
 			);
 			path = eDice;
 			sourceTree = "<group>";
@@ -120,6 +134,7 @@
 		0AC8E93A1E1423B200912E40 /* eDiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A722BEB1EBE7EE700DD310B /* PlayerTester.swift */,
 				0AC8E93B1E1423B200912E40 /* eDiceTests.swift */,
 				0AC8E9581E179F3600912E40 /* DieTester.swift */,
 				0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */,
@@ -244,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A677DAF1EB767470071CD81 /* ToDo.txt in Resources */,
 				0AC8E9311E1423B200912E40 /* LaunchScreen.storyboard in Resources */,
 				0AC8E92E1E1423B200912E40 /* Assets.xcassets in Resources */,
 				0AC8E92C1E1423B200912E40 /* Main.storyboard in Resources */,
@@ -271,8 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF668DA1E3DB0310021B744 /* Turn.swift in Sources */,
+				0AF668DC1E3DB3A30021B744 /* Game.swift in Sources */,
 				0AC8E9291E1423B200912E40 /* ViewController.swift in Sources */,
 				0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */,
+				0A722BE81EBB55DD00DD310B /* Player.swift in Sources */,
 				0AC8E9271E1423B200912E40 /* AppDelegate.swift in Sources */,
 				0AC8E9571E17961100912E40 /* Die.swift in Sources */,
 			);
@@ -283,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */,
+				0A722BEC1EBE7EE700DD310B /* PlayerTester.swift in Sources */,
 				0AC8E93C1E1423B200912E40 /* eDiceTests.swift in Sources */,
 				0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */,
 			);

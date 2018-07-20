@@ -49,8 +49,10 @@ class DieSetTester: XCTestCase {
         let ds = DieSet()
         
         XCTAssertEqual(6, ds.dice.count)
+        var count = 1
         for d in ds.dice {
-            XCTAssertEqual(1, d.value)
+            XCTAssertEqual(count, d.value)
+            count += 1
         }
     }
 
@@ -180,21 +182,25 @@ class DieSetTester: XCTestCase {
     
     func testCountNum() {
         let ds1 = DieSet(fromArr: [1, 2, 3, 4, 5, 6])
-        XCTAssertEqual(1, ds1.countNum(1))
+        XCTAssertEqual(1, ds1.countNum(1, true))
         
         let ds2 = DieSet(fromArr: [1, 2, 2, 3, 4, 5])
-        XCTAssertEqual(2, ds2.countNum(2))
+        XCTAssertEqual(2, ds2.countNum(2, true))
         
         let ds3 = DieSet(fromArr: [1, 2, 3, 3, 3, 4])
-        XCTAssertEqual(3, ds3.countNum(3))
+        XCTAssertEqual(3, ds3.countNum(3, true))
         
         let ds4 = DieSet(fromArr: [4, 4, 4, 4, 5, 6])
-        XCTAssertEqual(4, ds4.countNum(4))
+        XCTAssertEqual(4, ds4.countNum(4, true))
         
-        let ds5 = DieSet(fromArr: [5, 5, 5, 5, 5, 6])
-        XCTAssertEqual(5, ds5.countNum(5))
+        let ds5 = DieSet(fromArr: [4, 5, 5, 5, 5, 5])
+        XCTAssertEqual(5, ds5.countNum(5, true))
         
         let ds6 = DieSet(fromArr: [6, 6, 6, 6, 6, 6])
-        XCTAssertEqual(6, ds6.countNum(6))
+        XCTAssertEqual(6, ds6.countNum(6, true))
+    }
+    
+    func testFrozenCountNum() {
+        // To Do - Test where countAll is false
     }
 }
