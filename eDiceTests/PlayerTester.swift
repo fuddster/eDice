@@ -42,14 +42,24 @@ class PlayerTester: XCTestCase {
         XCTAssertEqual(p.name, "Fudd")
     }
 
-    func testWithTypeSkill() {
-        let p = Player(withType: "computer", withSkill: "low")
-
+    func testWithType() {
+        let p = Player(withType: "computer")
+        
         XCTAssertEqual(p.type, "computer")
         XCTAssertEqual(p.roundScores.isEmpty, true)
         XCTAssertEqual(p.turnScores.isEmpty, true)
         XCTAssertEqual(p.skill, "low")
-        XCTAssertEqual(p.name, "Computer")
+        XCTAssertEqual(p.name, "Bob")
+    }
+    
+    func testWithTypeSkill() {
+        let p = Player(withType: "computer", withSkill: "high")
+        
+        XCTAssertEqual(p.skill, "high")
+        XCTAssertEqual(p.type, "computer")
+        XCTAssertEqual(p.roundScores.isEmpty, true)
+        XCTAssertEqual(p.turnScores.isEmpty, true)
+        XCTAssertEqual(p.name, "Bob")
     }
 
     func testSetName() {
@@ -65,6 +75,14 @@ class PlayerTester: XCTestCase {
         XCTAssertEqual(p.name, "Fudd")
     }
 
+    func testGetName() {
+        let p = Player()
+
+        XCTAssertEqual(p.getName(), "")
+        p.setName(withName: "Fudd")
+        XCTAssertEqual(p.getName(), "Fudd")
+    }
+
     func testSetSkill() {
         let p = Player()
 
@@ -76,6 +94,14 @@ class PlayerTester: XCTestCase {
 
         p.setSkill(withSkill: "medium")
         XCTAssertEqual(p.skill, "medium")
+    }
+
+    func testGetSkill() {
+        let p = Player()
+
+        XCTAssertEqual(p.getSkill(), "low")
+        p.setSkill(withSkill: "high")
+        XCTAssertEqual(p.getSkill(), "high")
     }
 
     func testAddToRoundScore() {
@@ -100,14 +126,14 @@ class PlayerTester: XCTestCase {
 
     func testAddToTurnScore() {
         let p = Player()
-
+        
         XCTAssertEqual(p.turnScores.isEmpty, true)
         p.addToTurnScores(100)
         XCTAssertEqual(p.turnScores[0], 100)
         p.addToTurnScores(5)
         XCTAssertEqual(p.turnScores[1], 5)
     }
-
+    
     func testResetTurnScore() {
         let p = Player()
 
@@ -118,13 +144,30 @@ class PlayerTester: XCTestCase {
         XCTAssertEqual(p.turnScores.isEmpty, true)
     }
 
-    func testWithSkill() {
-        let p = Player(withType: "computer", withSkill: "high")
+    func testTotalTurnScore() {
+        let p = Player()
 
-        XCTAssertEqual(p.skill, "high")
-        XCTAssertEqual(p.type, "computer")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.name, "Computer")
+        XCTAssertEqual(p.totalTurnScore(), 0)
+        p.addToTurnScores(100)
+        XCTAssertEqual(p.turnScores[0], 100)
+        p.addToTurnScores(5)
+        XCTAssertEqual(p.turnScores[1], 5)
+        XCTAssertEqual(p.totalTurnScore(), 105)
+        p.resetTurnScores()
+        XCTAssertEqual(p.totalTurnScore(), 0)
     }
+
+    func testTotalRoundScore() {
+        let p = Player()
+        
+        XCTAssertEqual(p.totalRoundScore(), 0)
+        p.addToRoundScores(100)
+        XCTAssertEqual(p.roundScores[0], 100)
+        p.addToRoundScores(5)
+        XCTAssertEqual(p.roundScores[1], 5)
+        XCTAssertEqual(p.totalRoundScore(), 105)
+        p.resetRoundScores()
+        XCTAssertEqual(p.totalRoundScore(), 0)
+    }
+    
 }

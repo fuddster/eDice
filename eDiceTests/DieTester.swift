@@ -22,6 +22,8 @@ class DieTester: XCTestCase {
         let d = Die()
         
         XCTAssertEqual(1, d.value)
+        XCTAssertEqual(false, d.frozen)
+        XCTAssertEqual(false, d.selected)
     }
 
     func testInitWithValue() {
@@ -32,6 +34,7 @@ class DieTester: XCTestCase {
         let d5 = Die(value: 5)
         let d6 = Die(value: 6)
 
+        // Good values
         XCTAssertEqual(1, d1.value)
         XCTAssertEqual(2, d2.value)
         XCTAssertEqual(3, d3.value)

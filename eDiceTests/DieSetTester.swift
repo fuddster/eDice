@@ -163,7 +163,7 @@ class DieSetTester: XCTestCase {
         XCTAssertEqual(1500, ds.score())
     }
 
-    func TestMixedScores() {
+    func testMixedScores() {
         let ds1 = DieSet(fromArr: [1, 2, 3, 3, 5, 6])
         XCTAssertEqual(150, ds1.score())
         

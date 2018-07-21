@@ -24,13 +24,13 @@ class Player: NSObject {
 
     init(withType type: String) {
         self.type = type
-        self.name = "Mr. Computer"
+        self.name = "Bob"
     }
 
     init(withType type: String, withSkill skill: String) {
         self.type = type
         self.skill = skill
-        self.name = "Computer"
+        self.name = "Bob"
     }
 
     func setName(withName name: String) {
