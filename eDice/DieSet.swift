@@ -10,7 +10,7 @@ import Foundation
 
 class DieSet {
     var dice = [Die]()
-    
+
     init() {
         dice.append(Die(value: 1)) // Die 1
         dice.append(Die(value: 2)) // Die 2
@@ -34,28 +34,46 @@ class DieSet {
         }
     }
 
-    func countNum(_ num: Int, _ countAll: Bool) -> Int {
+    func rollAll() {
+        for d in dice {
+            d.roll()
+        }
+    }
+
+    func moveSelectedToFrozen() {
+        for d in dice {
+            if (d.selected) {
+                d.freeze()
+                d.selected = false
+            }
+        }
+    }
+
+    func countNum(_ num: Int, _ countSelected: Bool) -> Int {
         var count = 0
-        
+
         for d in dice {
             if (d.value == num) {
-                if (countAll || (d.frozen == false)) {
+                if ((countSelected) && (d.selected == true)) {
+                    count += 1
+                }
+                if ((!countSelected) && (d.selected == false) && (d.frozen == false)) {
                     count += 1
                 }
             }
         }
-        
+        print("\(num): \(count)")
         return count
     }
 
-    func score(_ countAll: Bool = true) -> Int {
-        let n1 = countNum(1, countAll)
-        let n2 = countNum(2, countAll)
-        let n3 = countNum(3, countAll)
-        let n4 = countNum(4, countAll)
-        let n5 = countNum(5, countAll)
-        let n6 = countNum(6, countAll)
-        
+    func score(_ countSelected: Bool = true) -> Int {
+        let n1 = countNum(1, countSelected)
+        let n2 = countNum(2, countSelected)
+        let n3 = countNum(3, countSelected)
+        let n4 = countNum(4, countSelected)
+        let n5 = countNum(5, countSelected)
+        let n6 = countNum(6, countSelected)
+
         var score = 0
 
         if ((n1 == 1) &&
@@ -72,25 +90,25 @@ class DieSet {
         } else {
             score += 100 * n1
         }
-        
+
         if (n2 > 2) {
             score += 200 * (n2 - 2)
         }
-        
+
         if (n3 > 2) {
             score += 300 * (n3 - 2)
         }
-        
+
         if (n4 > 2) {
             score += 400 * (n4 - 2)
         }
-        
+
         if (n5 > 2) {
             score += 500 * (n5 - 2)
         } else {
             score += 50 * n5
         }
-        
+
         if (n6 > 2) {
             score += 600 * (n6 - 2)
         }
@@ -103,13 +121,13 @@ class DieSet {
             d.frozen = true
         }
     }
-    
+
     func unFreezeAll() {
         for d in dice {
             d.frozen = false
         }
     }
-    
+
     func allFrozen() -> Bool {
         var rollAll: Bool = false
         for d in dice {
@@ -118,5 +136,31 @@ class DieSet {
             }
         }
         return rollAll
+    }
+
+    func unSelectAll() {
+        for d in dice {
+            d.selected = false
+        }
+    }
+
+    func allSelected() -> Bool {
+        var allSelected: Bool = false
+        for d in dice {
+            if (!d.selected) {
+                allSelected = false
+            }
+        }
+        return allSelected
+    }
+
+    func countSelected() -> Int {
+        var numSelected = 0
+        for d in dice {
+            if (d.selected) {
+                numSelected += 1
+            }
+        }
+        return numSelected
     }
 }

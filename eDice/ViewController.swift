@@ -16,7 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var die4: UIImageView!
     @IBOutlet weak var die5: UIImageView!
     @IBOutlet weak var die6: UIImageView!
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var frozenDie1: UIImageView!
+    @IBOutlet weak var frozenDie2: UIImageView!
+    @IBOutlet weak var frozenDie3: UIImageView!
+    @IBOutlet weak var frozenDie4: UIImageView!
+    @IBOutlet weak var frozenDie5: UIImageView!
+    @IBOutlet weak var frozenDie6: UIImageView!
+    @IBOutlet weak var rollScore: UILabel!
+    @IBOutlet weak var turnScore: UILabel!
     @IBOutlet weak var addHumanButton: UIButton!
     @IBOutlet weak var addComputerButton: UIButton!
     @IBOutlet weak var goButton: UIButton!
@@ -42,6 +49,7 @@ class ViewController: UIViewController {
         for die in ds.dice {
             die.button.isUserInteractionEnabled = false
         }
+        round.text = String(g.currentRound)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,23 +58,47 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButton(_ sender: UIButton) {
-        if (ds.allFrozen()) {
-            ds.unFreezeAll()
-            g.currentPlayer?.turnScores.append(ds.score())
+        // First roll - skip some of this
+        if (g.currentPlayer.totalTurnScore() > 0) {
+            // Can't roll without selecting at least one die
+            if (ds.countSelected() < 1){
+                // Pop up warning
+                return
+            }
         }
 
+        // Update roll score
+        updateRollScore()
+
+        // Update turn score
+        g.currentPlayer.addToTurnScores(ds.score())
+        turnScore.text = String(g.currentPlayer.totalTurnScore())
+
+        // Move selected dice to frozen row
+        ds.moveSelectedToFrozen()
+        updateDieView()
+
+        // Disable dice button
         for d in ds.dice {
             if (d.frozen) {
                 d.button.isUserInteractionEnabled = false
             } else {
                 d.button.isUserInteractionEnabled = true
             }
-            d.roll()
         }
+
+        if (ds.allFrozen()) {
+            ds.unFreezeAll()
+        }
+
+        ds.rollAll()
         updateDieView()
-        let s = ds.score()
-        print("Score = \(s)")
-        score.text = String(s)
+        if (ds.score(false) == 0) {
+            print("Bust! End of turn")
+            // Bust - End of turn
+            nextPlayerSetup()
+            round.text = String(g.currentRound)
+        }
     }
 
     @IBAction func go(_ sender: UIButton) {
@@ -99,32 +131,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func die1Tapped(_ sender: Any) {
-        ds.dice[0].toggleFrozen()
+        ds.dice[0].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die2Tapped(_ sender: Any) {
-        ds.dice[1].toggleFrozen()
+        ds.dice[1].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die3Tapped(_ sender: Any) {
-        ds.dice[2].toggleFrozen()
+        ds.dice[2].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die4Tapped(_ sender: Any) {
-        ds.dice[3].toggleFrozen()
+        ds.dice[3].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die5Tapped(_ sender: Any) {
-        ds.dice[4].toggleFrozen()
+        ds.dice[4].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die6Tapped(_ sender: Any) {
-        ds.dice[5].toggleFrozen()
+        ds.dice[5].toggleSelected()
         updateDieView()
     }
 
@@ -133,39 +165,97 @@ class ViewController: UIViewController {
         var dice = ds.dice
 
         if (dice[0].frozen) {
-            die1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
+            frozenDie1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
+            die1.image = nil
         } else {
-            die1.image = UIImage(named: Die.normalDieAssets[dice[0].value]!)
+            if (dice[0].selected) {
+                die1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
+            } else {
+                die1.image = UIImage(named: Die.normalDieAssets[dice[0].value]!)
+            }
+            frozenDie1.image = nil
         }
 
         if (dice[1].frozen) {
-            die2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
+            frozenDie2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
+            die2.image = nil
         } else {
-            die2.image = UIImage(named: Die.normalDieAssets[dice[1].value]!)
+            if (dice[1].selected) {
+                die2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
+            } else {
+                die2.image = UIImage(named: Die.normalDieAssets[dice[1].value]!)
+            }
+            frozenDie2.image = nil
         }
-
+        
         if (dice[2].frozen) {
-            die3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
+            frozenDie3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
+            die3.image = nil
         } else {
-            die3.image = UIImage(named: Die.normalDieAssets[dice[2].value]!)
+            if (dice[2].selected) {
+                die3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
+            } else {
+                die3.image = UIImage(named: Die.normalDieAssets[dice[2].value]!)
+            }
+            frozenDie3.image = nil
         }
 
         if (dice[3].frozen) {
-            die4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
+            frozenDie4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
+            die4.image = nil
         } else {
-            die4.image = UIImage(named: Die.normalDieAssets[dice[3].value]!)
+            if (dice[3].selected) {
+                die4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
+            } else {
+                die4.image = UIImage(named: Die.normalDieAssets[dice[3].value]!)
+            }
+            frozenDie4 = nil
         }
 
         if (dice[4].frozen) {
-            die5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
+            frozenDie5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
+            die5.image = nil
         } else {
-            die5.image = UIImage(named: Die.normalDieAssets[dice[4].value]!)
+            if (dice[4].selected) {
+                die5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
+            } else {
+                die5.image = UIImage(named: Die.normalDieAssets[dice[4].value]!)
+            }
+            frozenDie5.image = nil
         }
 
         if (dice[5].frozen) {
-            die6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
+            frozenDie6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
+            die6.image = nil
         } else {
-            die6.image = UIImage(named: Die.normalDieAssets[dice[5].value]!)
+            if (dice[5].selected) {
+                die6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
+            } else {
+                die6.image = UIImage(named: Die.normalDieAssets[dice[5].value]!)
+            }
+            frozenDie6.image = nil
+        }
+
+        updateRollScore()
+    }
+
+    func updateRollScore() {
+        let rs = ds.score()
+        print("Score = \(rs)")
+        rollScore.text = String(rs)
+    }
+
+    func nextPlayerSetup() {
+        print("Next Player!")
+        g.currentPlayer.resetTurnScores()
+        ds.unSelectAll()
+        ds.unFreezeAll()
+        g.nextPlayer()
+        if (g.currentRound > g.numOfRounds) {
+            // Game over
+            // Display final score
+        } else {
+            // Display next player pop up
         }
     }
 }

@@ -12,9 +12,9 @@ class Game: NSObject {
     // Players
     var players = [Player]()
     let numOfRounds = 10
-    var currentPlayer: Player?
+    var currentPlayer: Player = Player()
     var currentPlayerNum = 0
-    var currentRound = 0
+    var currentRound = 1
 
     func addHumanPlayer() {
         players.append(Player())
@@ -34,10 +34,10 @@ class Game: NSObject {
     
     func getCurrentPlayerName() -> String {
         var name = ""
-        if ((currentPlayer == nil) || (currentPlayer!.name == "")) {
-            name = "Player " + String(currentPlayerNum)
+        if ((currentPlayer == nil) || (currentPlayer.name == "")) {
+            name = String(currentPlayerNum) + " - Player " + String(currentPlayerNum)
         } else {
-            name = String(currentPlayerNum) + " - " + currentPlayer!.name
+            name = String(currentPlayerNum) + " - " + currentPlayer.name
         }
         return(name)
     }
@@ -49,14 +49,15 @@ class Game: NSObject {
         }
         
         if ((currentPlayer == nil) || (currentPlayer == players.last)) {
-            currentPlayer = players.first
+            currentPlayer = players.first!
             currentPlayerNum = 1
+            currentRound += 1
         } else {
-            let i = players.index(of: currentPlayer!)
-            currentPlayer! = players[i!+1]
+            let i = players.index(of: currentPlayer)
+            currentPlayer = players[i!+1]
             currentPlayerNum += 1
         }
-        print ("New player: ", currentPlayer!.name)
+        print ("New player: ", currentPlayer.name)
     }
 
     func go() {

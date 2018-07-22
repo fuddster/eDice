@@ -163,7 +163,7 @@ class DieTester: XCTestCase {
         XCTAssertEqual(d.frozen, false)
         d.roll()
 
-        // Value should not change if the die is frozen
+        // Value should change if the die is unfrozen
         XCTAssertNotEqual(oldValue, d.value)
         d.roll()
         XCTAssertNotEqual(oldValue, d.value)

@@ -38,11 +38,11 @@ class Die {
     }
     
     func freeze() {
-        frozen = true;
+        frozen = true
     }
     
     func unfreeze() {
-        frozen = false;
+        frozen = false
     }
     
     func toggleFrozen() {
@@ -50,6 +50,17 @@ class Die {
             frozen = false
         } else {
             frozen = true
+        }
+    }
+
+    func select() {
+        selected = true
+    }
+    func toggleSelected() {
+        if (selected) {
+            selected = false
+        } else {
+            selected = true
         }
     }
 }

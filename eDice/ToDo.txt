@@ -1,5 +1,40 @@
 eDice
 
+
+// Random notes
+    When clicking die after roll, selected = true
+    After clicking roll, all selected dice become frozen
+    When all die are selected, then all die become not selected and unfrozen for next roll
+    Frozen die cannot be selected or unfrozen until end of turn or all die are used
+    *User interaction
+            *Roll Button ->
+                Selected dice become frozen and moved to row above
+                Add selected dice score to turn score if not first roll
+                if all dice are frozen unfreeze them and move them down a row
+                Randomize dice that are not frozen
+                    *Select at least one die
+                    Bust
+                        Next Player setup
+            *Bank Button ->
+                Add selected dice score to turn score
+                Add turn score to round score
+                Next Player setup
+            Next Player setup
+                Zero out turn score
+                Unfreeze all dice and move them down a row
+                If next player is first player increment round
+                if round > maxRound then end game
+                Next player message
+            End game
+                *Display winner (Prompt?)
+                *Replay
+                    Zero out turn and round scores
+                    Reset dice
+                *New configuration
+                    Zero out turn and round scores
+                    Reset dice
+                    Remove all players
+
 Classes:
 
     Die
