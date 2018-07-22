@@ -62,7 +62,7 @@ class DieSet {
                 }
             }
         }
-        print("\(num): \(count)")
+        //print("\(num): \(count)")
         return count
     }
 

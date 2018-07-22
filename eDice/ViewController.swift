@@ -38,6 +38,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
         ds.dice[0].button = die1
         ds.dice[1].button = die2
@@ -209,7 +210,7 @@ class ViewController: UIViewController {
             } else {
                 die4.image = UIImage(named: Die.normalDieAssets[dice[3].value]!)
             }
-            frozenDie4 = nil
+            frozenDie4.image = nil
         }
 
         if (dice[4].frozen) {
