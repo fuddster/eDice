@@ -66,6 +66,14 @@ class DieSet {
         return count
     }
 
+    func setScoring(_ num: Int = 1) {
+        for d in dice {
+            if (d.value == num) {
+                d.scoring = true
+            }
+        }
+    }
+
     func score(_ countSelected: Bool = true) -> Int {
         let n1 = countNum(1, countSelected)
         let n2 = countNum(2, countSelected)
@@ -76,15 +84,25 @@ class DieSet {
 
         var score = 0
 
+        for d in dice {
+            d.scoring = false
+        }
+
         if ((n1 == 1) &&
             (n2 == 1) &&
             (n3 == 1) &&
             (n4 == 1) &&
             (n5 == 1) &&
             (n6 == 1)) {
+                for d in dice {
+                    d.scoring = true
+                }
                 return 1500
         }
 
+        setScoring(1)
+        setScoring(5)
+        
         if (n1 > 2) {
             score += 1000 * (n1 - 2)
         } else {
@@ -92,14 +110,17 @@ class DieSet {
         }
 
         if (n2 > 2) {
+            setScoring(2)
             score += 200 * (n2 - 2)
         }
 
         if (n3 > 2) {
+            setScoring(3)
             score += 300 * (n3 - 2)
         }
 
         if (n4 > 2) {
+            setScoring(4)
             score += 400 * (n4 - 2)
         }
 
@@ -110,6 +131,7 @@ class DieSet {
         }
 
         if (n6 > 2) {
+            setScoring(6)
             score += 600 * (n6 - 2)
         }
 
@@ -129,13 +151,13 @@ class DieSet {
     }
 
     func allFrozen() -> Bool {
-        var rollAll: Bool = false
+        var allFrozen: Bool = true
         for d in dice {
             if (!d.frozen) {
-                rollAll = false
+                allFrozen = false
             }
         }
-        return rollAll
+        return allFrozen
     }
 
     func unSelectAll() {
@@ -162,5 +184,15 @@ class DieSet {
             }
         }
         return numSelected
+    }
+
+    func nonScoringDiceSelected() -> Bool {
+        var nonScoringDice = false
+        for d in dice {
+            if ((d.selected) && (!d.scoring)) {
+                nonScoringDice = true
+            }
+        }
+        return nonScoringDice
     }
 }

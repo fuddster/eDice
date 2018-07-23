@@ -15,6 +15,7 @@ class Die {
     var value: Int
     var frozen: Bool = false
     var selected: Bool = false
+    var scoring: Bool = false
     var button: UIImageView
 
     init() {

@@ -12,9 +12,10 @@ class Game: NSObject {
     // Players
     var players = [Player]()
     let numOfRounds = 10
-    var currentPlayer: Player = Player()
+    var currentPlayer: Player!
     var currentPlayerNum = 0
     var currentRound = 1
+    var newTurn = true
 
     func addHumanPlayer() {
         players.append(Player())

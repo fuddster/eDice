@@ -51,6 +51,11 @@ class ViewController: UIViewController {
             die.button.isUserInteractionEnabled = false
         }
         round.text = String(g.currentRound)
+        
+        // For now
+        g.addHumanPlayer(withName: "Fudd")
+        g.go()
+        playerName.text = g.currentPlayer.getName()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,12 +65,22 @@ class ViewController: UIViewController {
 
     @IBAction func rollButton(_ sender: UIButton) {
         // First roll - skip some of this
-        if (g.currentPlayer.totalTurnScore() > 0) {
+        if (!g.newTurn) {
             // Can't roll without selecting at least one die
             if (ds.countSelected() < 1){
                 // Pop up warning
+                showAlert("You must select at least on die")
                 return
             }
+        } else {
+            g.newTurn = false
+        }
+
+        // User selected a dice that doesn't contribute to scoring
+        if (ds.nonScoringDiceSelected()) {
+            // Pop up warning
+            showAlert("All selected dice must contribute to the score")
+            return
         }
 
         // Update roll score
@@ -79,6 +94,11 @@ class ViewController: UIViewController {
         ds.moveSelectedToFrozen()
         updateDieView()
 
+        // Reset if all dice selected
+        if (ds.allFrozen()) {
+            ds.unFreezeAll()
+        }
+        
         // Disable dice button
         for d in ds.dice {
             if (d.frozen) {
@@ -88,15 +108,11 @@ class ViewController: UIViewController {
             }
         }
 
-        if (ds.allFrozen()) {
-            ds.unFreezeAll()
-        }
-
         ds.rollAll()
         updateDieView()
         if (ds.score(false) == 0) {
-            print("Bust! End of turn")
             // Bust - End of turn
+            g.newTurn = true
             nextPlayerSetup()
             round.text = String(g.currentRound)
         }
@@ -165,6 +181,24 @@ class ViewController: UIViewController {
     {
         var dice = ds.dice
 
+/* Don't like the way this looks.  You can't see the dice when you bust */
+/* Maybe if the dice can be viewed until the alert is dismissed that would be better
+        if (g.newTurn) {
+            die1.image = nil
+            die2.image = nil
+            die3.image = nil
+            die4.image = nil
+            die5.image = nil
+            die6.image = nil
+            frozenDie1.image = nil
+            frozenDie2.image = nil
+            frozenDie3.image = nil
+            frozenDie4.image = nil
+            frozenDie5.image = nil
+            frozenDie6.image = nil
+            return
+        }
+*/
         if (dice[0].frozen) {
             frozenDie1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
             die1.image = nil
@@ -242,7 +276,7 @@ class ViewController: UIViewController {
 
     func updateRollScore() {
         let rs = ds.score()
-        print("Score = \(rs)")
+        //print("Score = \(rs)")
         rollScore.text = String(rs)
     }
 
@@ -252,12 +286,24 @@ class ViewController: UIViewController {
         ds.unSelectAll()
         ds.unFreezeAll()
         g.nextPlayer()
+        playerName.text = g.currentPlayer.getName()
         if (g.currentRound > g.numOfRounds) {
             // Game over
             // Display final score
+            showAlert("", "Game Over")
         } else {
             // Display next player pop up
+            showAlert("Next player: \(g.currentPlayer.getName())", "Bust")
         }
+        updateDieView()
+    }
+
+    func showAlert(_ message: String = "", _ title: String = "Alert") {
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
