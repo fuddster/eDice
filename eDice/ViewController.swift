@@ -182,7 +182,7 @@ class ViewController: UIViewController {
         var dice = ds.dice
 
 /* Don't like the way this looks.  You can't see the dice when you bust */
-/* Maybe if the dice can be viewed until the alert is dismissed that would be better
+/* Maybe if the dice can be viewed until the alert is dismissed that would be better */
         if (g.newTurn) {
             die1.image = nil
             die2.image = nil
@@ -198,7 +198,7 @@ class ViewController: UIViewController {
             frozenDie6.image = nil
             return
         }
-*/
+
         if (dice[0].frozen) {
             frozenDie1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
             die1.image = nil
@@ -295,14 +295,13 @@ class ViewController: UIViewController {
             // Display next player pop up
             showAlert("Next player: \(g.currentPlayer.getName())", "Bust")
         }
-        updateDieView()
     }
 
     func showAlert(_ message: String = "", _ title: String = "Alert") {
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
-        
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: {_ in self.updateDieView() }))
+
         self.present(alertController, animated: true, completion: nil)
     }
 }
