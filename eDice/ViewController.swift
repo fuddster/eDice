@@ -31,14 +31,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var diceButtons: UIStackView!
     @IBOutlet weak var addPlayerLabel: UILabel!
+    @IBOutlet weak var startSinglePlayer: UIButton!
 
-    var ds = DieSet()
-    
-    var g = Game()
+    var game: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        guard let ds = game?.ds else {
+            print("viewDidLoad - Game not defined")
+            return
+        }
         // Do any additional setup after loading the view, typically from a nib.
         ds.dice[0].button = die1
         ds.dice[1].button = die2
@@ -46,16 +49,10 @@ class ViewController: UIViewController {
         ds.dice[3].button = die4
         ds.dice[4].button = die5
         ds.dice[5].button = die6
-        
+
         for die in ds.dice {
             die.button.isUserInteractionEnabled = false
         }
-        round.text = String(g.currentRound)
-        
-        // For now
-        g.addHumanPlayer(withName: "Fudd")
-        g.go()
-        playerName.text = g.currentPlayer.getName()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,10 +61,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButton(_ sender: UIButton) {
+        guard let g = game else {
+            print("Game not defined")
+            return
+        }
+
         // First roll - skip some of this
         if (!g.newTurn) {
             // Can't roll without selecting at least one die
-            if (ds.countSelected() < 1){
+            if (g.ds.countSelected() < 1){
                 // Pop up warning
                 showAlert("You must select at least on die")
                 return
@@ -77,7 +79,7 @@ class ViewController: UIViewController {
         }
 
         // User selected a dice that doesn't contribute to scoring
-        if (ds.nonScoringDiceSelected()) {
+        if (g.ds.nonScoringDiceSelected()) {
             // Pop up warning
             showAlert("All selected dice must contribute to the score")
             return
@@ -87,20 +89,20 @@ class ViewController: UIViewController {
         updateRollScore()
 
         // Update turn score
-        g.currentPlayer.addToTurnScores(ds.score())
+        g.currentPlayer.addToTurnScores(g.ds.score())
         turnScore.text = String(g.currentPlayer.totalTurnScore())
 
         // Move selected dice to frozen row
-        ds.moveSelectedToFrozen()
+        g.ds.moveSelectedToFrozen()
         updateDieView()
 
         // Reset if all dice selected
-        if (ds.allFrozen()) {
-            ds.unFreezeAll()
+        if (g.ds.allFrozen()) {
+            g.ds.unFreezeAll()
         }
         
         // Disable dice button
-        for d in ds.dice {
+        for d in g.ds.dice {
             if (d.frozen) {
                 d.button.isUserInteractionEnabled = false
             } else {
@@ -108,9 +110,9 @@ class ViewController: UIViewController {
             }
         }
 
-        ds.rollAll()
+        g.ds.rollAll()
         updateDieView()
-        if (ds.score(false) == 0) {
+        if (g.ds.score(false) == 0) {
             // Bust - End of turn
             g.newTurn = true
             nextPlayerSetup()
@@ -119,6 +121,11 @@ class ViewController: UIViewController {
     }
 
     @IBAction func go(_ sender: UIButton) {
+        guard let g = game else {
+            print("Game not defined")
+            return
+        }
+        
         if (g.players.count == 0) {
             // Message that there are no players
             print("No GO!  No players")
@@ -135,54 +142,45 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func addHuman(_ sender: UIButton) {
-        g.addHumanPlayer()
-        print("Added Human Player")
-        print("Num of players", g.players.count)
-    }
-
-    @IBAction func addComputer(_ sender: UIButton) {
-        g.addComputerPlayer()
-        print("Added Human Player")
-        print("Num of players", g.players.count)
-    }
-    
     @IBAction func die1Tapped(_ sender: Any) {
-        ds.dice[0].toggleSelected()
+        game?.ds.dice[0].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die2Tapped(_ sender: Any) {
-        ds.dice[1].toggleSelected()
+        game?.ds.dice[1].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die3Tapped(_ sender: Any) {
-        ds.dice[2].toggleSelected()
+        game?.ds.dice[2].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die4Tapped(_ sender: Any) {
-        ds.dice[3].toggleSelected()
+        game?.ds.dice[3].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die5Tapped(_ sender: Any) {
-        ds.dice[4].toggleSelected()
+        game?.ds.dice[4].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die6Tapped(_ sender: Any) {
-        ds.dice[5].toggleSelected()
+        game?.ds.dice[5].toggleSelected()
         updateDieView()
     }
 
     func updateDieView()
     {
-        var dice = ds.dice
+        guard let g = game else {
+            print("Game not defined")
+            return
+        }
+        
+        var dice = g.ds.dice
 
-/* Don't like the way this looks.  You can't see the dice when you bust */
-/* Maybe if the dice can be viewed until the alert is dismissed that would be better */
         if (g.newTurn) {
             die1.image = nil
             die2.image = nil
@@ -275,16 +273,21 @@ class ViewController: UIViewController {
     }
 
     func updateRollScore() {
-        let rs = ds.score()
+        let rs = game!.ds.score()
         //print("Score = \(rs)")
         rollScore.text = String(rs)
     }
 
     func nextPlayerSetup() {
+        guard let g = game else {
+            print("Game not defined")
+            return
+        }
+        
         print("Next Player!")
         g.currentPlayer.resetTurnScores()
-        ds.unSelectAll()
-        ds.unFreezeAll()
+        g.ds.unSelectAll()
+        g.ds.unFreezeAll()
         g.nextPlayer()
         playerName.text = g.currentPlayer.getName()
         if (g.currentRound > g.numOfRounds) {
@@ -303,6 +306,17 @@ class ViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: {_ in self.updateDieView() }))
 
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    func startGame() {
+        guard let g = game else {
+            print("Game not defined")
+            return
+        }
+
+        g.go()
+        round.text = String(g.currentRound)
+        playerName.text = g.currentPlayer.getName()
     }
 }
 

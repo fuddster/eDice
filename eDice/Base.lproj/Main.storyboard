@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ccd-cV-e8N">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu-->
+        <scene sceneID="DUe-29-JX2">
+            <objects>
+                <viewController title="Main Menu" id="Ccd-cV-e8N" customClass="MainMenuViewController" customModule="eDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u8r-6L-jMn"/>
+                        <viewControllerLayoutGuide type="bottom" id="MT9-os-x5q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I9p-uJ-igt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DJR-nd-WxV" userLabel="Screen V Stack View">
+                                <rect key="frame" x="63" y="69" width="194" height="94"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eDice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvO-e6-yAb">
+                                        <rect key="frame" x="0.0" y="0.0" width="194" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="Chu-Kc-ald"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4v-7S-vm6">
+                                        <rect key="frame" x="0.0" y="60" width="194" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                        <state key="normal" title="Single Player Game"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="SinglePlayerGame" id="RBX-8E-jWL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DJR-nd-WxV" firstAttribute="centerX" secondItem="I9p-uJ-igt" secondAttribute="centerX" id="PJo-0J-jdm"/>
+                            <constraint firstItem="DJR-nd-WxV" firstAttribute="top" secondItem="u8r-6L-jMn" secondAttribute="bottom" constant="49" id="oE3-iv-rLc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startSinglePlayerButton" destination="n4v-7S-vm6" id="xzz-sV-WkK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GL8-07-wgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="124"/>
+        </scene>
+        <!--Game Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="eDice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Game Screen" id="BYZ-38-t0r" customClass="ViewController" customModule="eDice" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -323,6 +375,7 @@
                             <constraint firstItem="naV-fz-Atg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yaB-B5-0RV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Eux-Yp-IEA"/>
                     <connections>
                         <outlet property="addComputerButton" destination="ieI-h2-uXV" id="ar9-fL-Bk5"/>
                         <outlet property="addHumanButton" destination="cnI-nB-2vl" id="hk6-wg-vIQ"/>
@@ -379,7 +432,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="116.25" y="123.59154929577466"/>
+            <point key="canvasLocation" x="1204" y="124"/>
         </scene>
     </scenes>
     <resources>

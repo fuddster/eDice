@@ -16,6 +16,7 @@ class Game: NSObject {
     var currentPlayerNum = 0
     var currentRound = 1
     var newTurn = true
+    var ds = DieSet()
 
     func addHumanPlayer() {
         players.append(Player())
