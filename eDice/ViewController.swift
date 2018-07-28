@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         guard let ds = game?.ds else {
-            print("viewDidLoad - Game not defined")
             return
         }
         // Do any additional setup after loading the view, typically from a nib.
@@ -53,6 +52,8 @@ class ViewController: UIViewController {
         for die in ds.dice {
             die.button.isUserInteractionEnabled = false
         }
+        
+        startGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,7 +63,6 @@ class ViewController: UIViewController {
 
     @IBAction func rollButton(_ sender: UIButton) {
         guard let g = game else {
-            print("Game not defined")
             return
         }
 
@@ -122,7 +122,6 @@ class ViewController: UIViewController {
 
     @IBAction func go(_ sender: UIButton) {
         guard let g = game else {
-            print("Game not defined")
             return
         }
         
@@ -175,7 +174,6 @@ class ViewController: UIViewController {
     func updateDieView()
     {
         guard let g = game else {
-            print("Game not defined")
             return
         }
         
@@ -280,7 +278,6 @@ class ViewController: UIViewController {
 
     func nextPlayerSetup() {
         guard let g = game else {
-            print("Game not defined")
             return
         }
         
@@ -310,7 +307,6 @@ class ViewController: UIViewController {
 
     func startGame() {
         guard let g = game else {
-            print("Game not defined")
             return
         }
 

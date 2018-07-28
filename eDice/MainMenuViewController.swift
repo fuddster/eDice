@@ -23,15 +23,12 @@ class MainMenuViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
-        print("prepare")
         //print(segue.identifier!)
         if segue.identifier == "SinglePlayerGame" {
             let dest = segue.destination as! ViewController
             let g = Game()
             g.addHumanPlayer(withName: "Fudd")
-            print("set game in dest")
             dest.game = g
-            dest.startGame()
         }
     }
 
