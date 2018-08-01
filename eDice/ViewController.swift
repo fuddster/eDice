@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var frozenDie6: UIImageView!
     @IBOutlet weak var rollScore: UILabel!
     @IBOutlet weak var turnScore: UILabel!
+    @IBOutlet weak var playerScore: UILabel!
     @IBOutlet weak var addHumanButton: UIButton!
     @IBOutlet weak var addComputerButton: UIButton!
     @IBOutlet weak var goButton: UIButton!
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
         for die in ds.dice {
             die.button.isUserInteractionEnabled = false
         }
-        
+
         startGame()
     }
 
@@ -64,6 +65,11 @@ class ViewController: UIViewController {
     @IBAction func rollButton(_ sender: UIButton) {
         guard let g = game else {
             return
+        }
+
+        var rollButton = true
+        if (sender.restorationIdentifier == "Bank") {
+            rollButton = false
         }
 
         // First roll - skip some of this
@@ -110,13 +116,21 @@ class ViewController: UIViewController {
             }
         }
 
-        g.ds.rollAll()
-        updateDieView()
-        if (g.ds.score(false) == 0) {
-            // Bust - End of turn
+        if (rollButton) {
+            g.ds.rollAll()
+            updateDieView()
+            if (g.ds.score(false) == 0) {
+                // Bust - End of turn
+                g.newTurn = true
+                nextPlayerSetup(true)
+                round.text = String(g.currentRound)
+            }
+        } else {
+            // Bank button
+            g.currentPlayer.addToRoundScores(g.currentPlayer.totalTurnScore())
+            playerScore.text = String(g.currentPlayer.totalRoundScore())
             g.newTurn = true
-            nextPlayerSetup()
-            round.text = String(g.currentRound)
+            nextPlayerSetup(false)
         }
     }
 
@@ -276,13 +290,14 @@ class ViewController: UIViewController {
         rollScore.text = String(rs)
     }
 
-    func nextPlayerSetup() {
+    func nextPlayerSetup(_ bust: Bool = true) {
         guard let g = game else {
             return
         }
         
         print("Next Player!")
         g.currentPlayer.resetTurnScores()
+        print("Unselect/Unfreeze all")
         g.ds.unSelectAll()
         g.ds.unFreezeAll()
         g.nextPlayer()
@@ -291,9 +306,16 @@ class ViewController: UIViewController {
             // Game over
             // Display final score
             showAlert("", "Game Over")
+            g.currentPlayer.resetTurnScores()
+            g.currentPlayer.resetRoundScores()
+            g.go()
         } else {
             // Display next player pop up
-            showAlert("Next player: \(g.currentPlayer.getName())", "Bust")
+            if (bust) {
+                showAlert("Next player: \(g.currentPlayer.getName())", "Bust!")
+            } else {
+                showAlert("Next player: \(g.currentPlayer.getName())", "Score Banked!")
+            }
         }
     }
 

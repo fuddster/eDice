@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="naV-fz-Atg" userLabel="Screen V Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="naV-fz-Atg" userLabel="Screen V Stack View">
                                 <rect key="frame" x="16" y="40" width="288" height="478"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eDice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMf-U6-was">
@@ -318,7 +318,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S89-wl-P3j" userLabel="Turn Roll Buttons">
                                         <rect key="frame" x="0.0" y="296.5" width="288" height="41"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-5i-UGJ">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Roll" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-5i-UGJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="144" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="Roll"/>
@@ -326,10 +326,13 @@
                                                     <action selector="rollButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZNq-Kj-5Va"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-wh-6el">
+                                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Bank" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-wh-6el">
                                                 <rect key="frame" x="144" y="0.0" width="144" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="Bank"/>
+                                                <connections>
+                                                    <action selector="rollButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dsw-fv-Hfb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -395,6 +398,7 @@
                         <outlet property="frozenDie6" destination="RvC-ow-YzK" id="hBs-FG-5E8"/>
                         <outlet property="goButton" destination="dbC-IK-hCK" id="aJM-2V-Cmo"/>
                         <outlet property="playerName" destination="j6i-bS-sz1" id="7y5-KM-vmf"/>
+                        <outlet property="playerScore" destination="NLz-Z2-39I" id="a4X-dh-Esk"/>
                         <outlet property="rollScore" destination="ihj-oH-n1P" id="cUf-ws-kN2"/>
                         <outlet property="round" destination="d72-E0-OmH" id="j6M-yg-cVo"/>
                         <outlet property="turnScore" destination="QQt-Uj-Eez" id="FiL-bW-bYC"/>
