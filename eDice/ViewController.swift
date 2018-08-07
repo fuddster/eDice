@@ -123,7 +123,6 @@ class ViewController: UIViewController {
                 // Bust - End of turn
                 g.newTurn = true
                 nextPlayerSetup(true)
-                round.text = String(g.currentRound)
             }
         } else {
             // Bank button
@@ -132,6 +131,7 @@ class ViewController: UIViewController {
             g.newTurn = true
             nextPlayerSetup(false)
         }
+        round.text = String(g.currentRound)
     }
 
     @IBAction func go(_ sender: UIButton) {
@@ -297,11 +297,9 @@ class ViewController: UIViewController {
         
         print("Next Player!")
         g.currentPlayer.resetTurnScores()
-        print("Unselect/Unfreeze all")
         g.ds.unSelectAll()
         g.ds.unFreezeAll()
         g.nextPlayer()
-        playerName.text = g.currentPlayer.getName()
         if (g.currentRound > g.numOfRounds) {
             // Game over
             // Display final score
@@ -317,6 +315,8 @@ class ViewController: UIViewController {
                 showAlert("Next player: \(g.currentPlayer.getName())", "Score Banked!")
             }
         }
+        playerName.text = g.currentPlayer.getName()
+        playerScore.text = String(g.currentPlayer.totalRoundScore())
     }
 
     func showAlert(_ message: String = "", _ title: String = "Alert") {
