@@ -84,8 +84,4 @@ class Player: NSObject {
 
         return total
     }
-
-    func turn() {
-        
-    }
 }

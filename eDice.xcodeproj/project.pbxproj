@@ -22,6 +22,7 @@
 		0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9581E179F3600912E40 /* DieTester.swift */; };
 		0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95A1E19A73800912E40 /* DieSet.swift */; };
 		0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */; };
+		0AECDD51211A906B008DE7D5 /* GameTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECDD50211A906B008DE7D5 /* GameTester.swift */; };
 		0AF668DA1E3DB0310021B744 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF668D91E3DB0310021B744 /* Turn.swift */; };
 		0AF668DC1E3DB3A30021B744 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF668DB1E3DB3A30021B744 /* Game.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		0AC8E9581E179F3600912E40 /* DieTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieTester.swift; sourceTree = "<group>"; };
 		0AC8E95A1E19A73800912E40 /* DieSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSet.swift; sourceTree = "<group>"; };
 		0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSetTester.swift; sourceTree = "<group>"; };
+		0AECDD50211A906B008DE7D5 /* GameTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTester.swift; sourceTree = "<group>"; };
 		0AF668D91E3DB0310021B744 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		0AF668DB1E3DB3A30021B744 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 				0AC8E93B1E1423B200912E40 /* eDiceTests.swift */,
 				0AC8E9581E179F3600912E40 /* DieTester.swift */,
 				0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */,
+				0AECDD50211A906B008DE7D5 /* GameTester.swift */,
 				0AC8E93D1E1423B200912E40 /* Info.plist */,
 			);
 			path = eDiceTests;
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */,
+				0AECDD51211A906B008DE7D5 /* GameTester.swift in Sources */,
 				0A722BEC1EBE7EE700DD310B /* PlayerTester.swift in Sources */,
 				0AC8E93C1E1423B200912E40 /* eDiceTests.swift in Sources */,
 				0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */,

@@ -49,8 +49,8 @@ class Game: NSObject {
             print("No players!")
             return
         }
-        
-        if ((currentPlayer == nil) || (currentPlayer == players.last)) {
+
+        if (currentPlayer == players.last) {
             currentPlayer = players.first!
             currentPlayerNum = 1
             currentRound += 1
@@ -63,7 +63,12 @@ class Game: NSObject {
     }
 
     func go() {
+        if (players.isEmpty) {
+            return
+        }
+
         currentRound = 1
         currentPlayer = players[0]
+        currentPlayerNum = 1
     }
 }
