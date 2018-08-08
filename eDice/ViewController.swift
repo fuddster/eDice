@@ -308,11 +308,15 @@ class ViewController: UIViewController {
             g.currentPlayer.resetRoundScores()
             g.go()
         } else {
+            var np = ""
             // Display next player pop up
             if (bust) {
-                showAlert("Next player: \(g.currentPlayer.getName())", "Bust!")
+                if (g.players.count != 1) {
+                    np = "Next player: \(g.currentPlayer.getName())"
+                }
+                showAlert(np, "Bust!")
             } else {
-                showAlert("Next player: \(g.currentPlayer.getName())", "Score Banked!")
+                showAlert(np, "Score Banked!")
             }
         }
         playerName.text = g.currentPlayer.getName()

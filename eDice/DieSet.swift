@@ -195,4 +195,14 @@ class DieSet {
         }
         return nonScoringDice
     }
+    
+    func logDice() -> String {
+        var str = "Dice:"
+        for d in dice {
+            str += " "
+            str += String(d.value)
+        }
+
+        return str
+    }
 }
