@@ -18,7 +18,7 @@ class MainMenuViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         //print(startSinglePlayerButton)
-        //startSinglePlayerButton.layer.cornerRadius = 10
+        startSinglePlayerButton.layer.cornerRadius = 10
     }
 
     // MARK: - Navigation

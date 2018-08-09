@@ -25,19 +25,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var rollScore: UILabel!
     @IBOutlet weak var turnScore: UILabel!
     @IBOutlet weak var playerScore: UILabel!
-    @IBOutlet weak var addHumanButton: UIButton!
-    @IBOutlet weak var addComputerButton: UIButton!
-    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var rollButton: UIButton!
+    @IBOutlet weak var bankButton: UIButton!
     @IBOutlet weak var round: UILabel!
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var diceButtons: UIStackView!
-    @IBOutlet weak var addPlayerLabel: UILabel!
-    @IBOutlet weak var startSinglePlayer: UIButton!
 
     var game: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        rollButton.layer.cornerRadius = 10
+        bankButton.layer.cornerRadius = 10
 
         guard let ds = game?.ds else {
             return
@@ -134,27 +134,6 @@ class ViewController: UIViewController {
         round.text = String(g.currentRound)
     }
 
-    @IBAction func go(_ sender: UIButton) {
-        guard let g = game else {
-            return
-        }
-        
-        if (g.players.count == 0) {
-            // Message that there are no players
-            print("No GO!  No players")
-        } else {
-            g.go()
-            print("Game on!")
-            print("Num of players", g.players.count)
-            goButton.isHidden = true
-            addHumanButton.isHidden = true
-            addComputerButton.isHidden = true
-            addPlayerLabel.isHidden = true
-            round.text = String(g.currentRound)
-            playerName.text = g.getCurrentPlayerName()
-        }
-    }
-
     @IBAction func die1Tapped(_ sender: Any) {
         game?.ds.dice[0].toggleSelected()
         updateDieView()
@@ -206,6 +185,7 @@ class ViewController: UIViewController {
             frozenDie4.image = nil
             frozenDie5.image = nil
             frozenDie6.image = nil
+            updateRollScore()
             return
         }
 
@@ -285,9 +265,15 @@ class ViewController: UIViewController {
     }
 
     func updateRollScore() {
-        let rs = game!.ds.score()
+        guard let g = game else {
+            return
+        }
+        
+        let rs = g.ds.score()
         //print("Score = \(rs)")
+        //print("Turn Score = \(g.currentPlayer.totalTurnScore())")
         rollScore.text = String(rs)
+        turnScore.text = String(g.currentPlayer.totalTurnScore() + rs)
     }
 
     func nextPlayerSetup(_ bust: Bool = true) {

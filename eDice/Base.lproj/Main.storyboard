@@ -138,7 +138,7 @@
                                             <constraint firstAttribute="height" constant="20" id="AJ5-HZ-lqa"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2sJ-zN-0Lb" userLabel="Frozen Dice">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2sJ-zN-0Lb" userLabel="Frozen Dice">
                                         <rect key="frame" x="0.0" y="136" width="288" height="40"/>
                                         <subviews>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b38-IN-KOO" userLabel="Frozen Die 1">
@@ -152,8 +152,8 @@
                                                     <constraint firstAttribute="width" constant="40" id="TcC-3M-apf"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KB-eo-wMA" userLabel="Frozen Die 2">
-                                                <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2KB-eo-wMA" userLabel="Frozen Die 2">
+                                                <rect key="frame" x="49.5" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -163,8 +163,8 @@
                                                     <constraint firstAttribute="width" constant="40" id="ipd-QE-W36"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-Y0-evR" userLabel="Frozen Die 3">
-                                                <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-Y0-evR" userLabel="Frozen Die 3">
+                                                <rect key="frame" x="99" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -174,8 +174,8 @@
                                                     <constraint firstAttribute="width" constant="40" id="NxA-Xd-Q3f"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5T-vg-zYg" userLabel="Frozen Die 4">
-                                                <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d5T-vg-zYg" userLabel="Frozen Die 4">
+                                                <rect key="frame" x="149" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -185,8 +185,8 @@
                                                     <constraint firstAttribute="width" constant="40" id="unL-uD-uxn"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beA-1B-F0s" userLabel="Frozen Die 5">
-                                                <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="beA-1B-F0s" userLabel="Frozen Die 5">
+                                                <rect key="frame" x="198.5" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -196,8 +196,8 @@
                                                     <constraint firstAttribute="height" constant="40" id="wqZ-UX-amo"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvC-ow-YzK" userLabel="Frozen Die 6">
-                                                <rect key="frame" x="250" y="0.0" width="38" height="40"/>
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RvC-ow-YzK" userLabel="Frozen Die 6">
+                                                <rect key="frame" x="248" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
@@ -212,7 +212,7 @@
                                             <constraint firstAttribute="height" constant="40" id="AWz-hl-tGN"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-a7-wgA" userLabel="Dice in Play">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-a7-wgA" userLabel="Dice in Play">
                                         <rect key="frame" x="0.0" y="196" width="288" height="40"/>
                                         <subviews>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_1" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-gC-VJM">
@@ -227,7 +227,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_2" translatesAutoresizingMaskIntoConstraints="NO" id="diX-vB-zIP">
-                                                <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="49.5" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="YTO-v3-ODv"/>
@@ -238,7 +238,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_3" translatesAutoresizingMaskIntoConstraints="NO" id="n0F-eD-9AN">
-                                                <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="99" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2DU-z8-l02"/>
@@ -249,7 +249,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_4" translatesAutoresizingMaskIntoConstraints="NO" id="Y60-hO-KDZ">
-                                                <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="149" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="Nha-e7-byv"/>
@@ -260,7 +260,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_5" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-li-TkS">
-                                                <rect key="frame" x="200" y="0.0" width="38" height="40"/>
+                                                <rect key="frame" x="198.5" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="9Qf-xa-EQ4"/>
@@ -289,14 +289,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="192-Ii-Xdj" userLabel="Turn Roll Score">
                                         <rect key="frame" x="0.0" y="256" width="288" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roll Score:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n18-6C-2a8">
-                                                <rect key="frame" x="0.0" y="0.0" width="82" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Roll Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n18-6C-2a8">
+                                                <rect key="frame" x="0.0" y="0.0" width="95" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-oH-n1P" userLabel="RollScore">
-                                                <rect key="frame" x="88" y="0.0" width="50" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-oH-n1P" userLabel="RollScore">
+                                                <rect key="frame" x="101" y="0.0" width="50" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="v5Y-hF-nev"/>
                                                 </constraints>
@@ -304,8 +304,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Score:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kw-t8-Tfl">
-                                                <rect key="frame" x="144" y="0.0" width="88" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Bankable:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kw-t8-Tfl">
+                                                <rect key="frame" x="157" y="0.0" width="75" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -362,6 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eux-Yp-IEA"/>
                     <connections>
+                        <outlet property="bankButton" destination="Lm7-wh-6el" id="zxf-4j-Gby"/>
                         <outlet property="diceButtons" destination="VeV-a7-wgA" id="Ypv-i3-KPA"/>
                         <outlet property="die1" destination="eWW-gC-VJM" id="TWM-73-oWM"/>
                         <outlet property="die2" destination="diX-vB-zIP" id="hoz-Jw-6qC"/>
@@ -377,6 +378,7 @@
                         <outlet property="frozenDie6" destination="RvC-ow-YzK" id="hBs-FG-5E8"/>
                         <outlet property="playerName" destination="j6i-bS-sz1" id="7y5-KM-vmf"/>
                         <outlet property="playerScore" destination="NLz-Z2-39I" id="a4X-dh-Esk"/>
+                        <outlet property="rollButton" destination="ogE-5i-UGJ" id="Zju-Bh-Udt"/>
                         <outlet property="rollScore" destination="ihj-oH-n1P" id="cUf-ws-kN2"/>
                         <outlet property="round" destination="d72-E0-OmH" id="j6M-yg-cVo"/>
                         <outlet property="turnScore" destination="QQt-Uj-Eez" id="FiL-bW-bYC"/>
