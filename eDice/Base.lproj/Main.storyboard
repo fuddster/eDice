@@ -75,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="naV-fz-Atg" userLabel="Screen V Stack View">
-                                <rect key="frame" x="16" y="40" width="288" height="478"/>
+                                <rect key="frame" x="16" y="40" width="288" height="337.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eDice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMf-U6-was">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="36"/>
@@ -148,40 +148,44 @@
                                                 </accessibility>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="BGL-Od-6el"/>
                                                     <constraint firstAttribute="width" constant="40" id="TcC-3M-apf"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2KB-eo-wMA" userLabel="Frozen Die 2">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2KB-eo-wMA" userLabel="Frozen Die 2">
                                                 <rect key="frame" x="50" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="e3D-hX-dZe"/>
                                                     <constraint firstAttribute="width" constant="40" id="ipd-QE-W36"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-Y0-evR" userLabel="Frozen Die 3">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-Y0-evR" userLabel="Frozen Die 3">
                                                 <rect key="frame" x="100" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="MqX-hi-HwB"/>
                                                     <constraint firstAttribute="width" constant="40" id="NxA-Xd-Q3f"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d5T-vg-zYg" userLabel="Frozen Die 4">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5T-vg-zYg" userLabel="Frozen Die 4">
                                                 <rect key="frame" x="150" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="cvM-gC-OlZ"/>
                                                     <constraint firstAttribute="width" constant="40" id="unL-uD-uxn"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="beA-1B-F0s" userLabel="Frozen Die 5">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beA-1B-F0s" userLabel="Frozen Die 5">
                                                 <rect key="frame" x="200" y="0.0" width="40" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
@@ -189,16 +193,18 @@
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="8Gw-c2-jYt"/>
+                                                    <constraint firstAttribute="height" constant="40" id="wqZ-UX-amo"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RvC-ow-YzK" userLabel="Frozen Die 6">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RvC-ow-YzK" userLabel="Frozen Die 6">
                                                 <rect key="frame" x="250" y="0.0" width="38" height="40"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                 </accessibility>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="38" id="nmn-S0-26N"/>
+                                                    <constraint firstAttribute="height" constant="40" id="10y-lD-fbW"/>
+                                                    <constraint firstAttribute="width" constant="40" id="nmn-S0-26N"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -213,6 +219,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="nud-6D-Eio"/>
                                                     <constraint firstAttribute="width" constant="40" id="sLZ-E8-5Tt"/>
                                                 </constraints>
                                                 <connections>
@@ -223,6 +230,7 @@
                                                 <rect key="frame" x="50" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="YTO-v3-ODv"/>
                                                     <constraint firstAttribute="width" constant="40" id="wiZ-rb-G1C"/>
                                                 </constraints>
                                                 <connections>
@@ -233,6 +241,7 @@
                                                 <rect key="frame" x="100" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="2DU-z8-l02"/>
                                                     <constraint firstAttribute="width" constant="40" id="WKn-w1-D38"/>
                                                 </constraints>
                                                 <connections>
@@ -244,15 +253,17 @@
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="Nha-e7-byv"/>
+                                                    <constraint firstAttribute="height" constant="40" id="pf4-h5-ylC"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="oG4-Qm-GIg" appends="YES" id="pLx-QK-Nv2"/>
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_5" translatesAutoresizingMaskIntoConstraints="NO" id="5cl-li-TkS">
-                                                <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="200" y="0.0" width="38" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="9Qf-xa-EQ4"/>
                                                     <constraint firstAttribute="width" constant="40" id="YQw-dG-iOo"/>
                                                 </constraints>
                                                 <connections>
@@ -260,10 +271,11 @@
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_6" translatesAutoresizingMaskIntoConstraints="NO" id="Nv3-ad-D6L">
-                                                <rect key="frame" x="250" y="0.0" width="38" height="40"/>
+                                                <rect key="frame" x="248" y="0.0" width="40" height="40"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="38" id="ykI-sQ-q4V"/>
+                                                    <constraint firstAttribute="height" constant="40" id="055-la-8XV"/>
+                                                    <constraint firstAttribute="width" constant="40" id="ykI-sQ-q4V"/>
                                                 </constraints>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="G4c-YG-Pn2" appends="YES" id="tud-Fi-0Rj"/>
@@ -280,7 +292,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roll Score:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n18-6C-2a8">
                                                 <rect key="frame" x="0.0" y="0.0" width="82" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihj-oH-n1P" userLabel="RollScore">
@@ -312,19 +324,24 @@
                                             <constraint firstAttribute="height" constant="20" id="cza-vC-Q1S"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S89-wl-P3j" userLabel="Turn Roll Buttons">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="S89-wl-P3j" userLabel="Turn Roll Buttons">
                                         <rect key="frame" x="0.0" y="296.5" width="288" height="41"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Roll" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-5i-UGJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="144" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138.5" height="41"/>
+                                                <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="Roll"/>
+                                                <state key="normal" title="Roll">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="rollButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZNq-Kj-5Va"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Bank" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-wh-6el">
-                                                <rect key="frame" x="144" y="0.0" width="144" height="41"/>
+                                                <rect key="frame" x="149.5" y="0.0" width="138.5" height="41"/>
+                                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="Bank"/>
                                                 <connections>
@@ -333,38 +350,6 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-hQ-MZK">
-                                        <rect key="frame" x="0.0" y="357.5" width="288" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lQy-Yx-uMj" userLabel="Player H Stack View">
-                                        <rect key="frame" x="0.0" y="398" width="288" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnI-nB-2vl">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="30"/>
-                                                <state key="normal" title="Human"/>
-                                                <connections>
-                                                    <action selector="addHuman:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRL-Cc-FzN"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieI-h2-uXV">
-                                                <rect key="frame" x="119.5" y="0.0" width="168.5" height="30"/>
-                                                <state key="normal" title="Computer"/>
-                                                <connections>
-                                                    <action selector="addComputer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aYZ-JS-qca"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-IK-hCK">
-                                        <rect key="frame" x="0.0" y="448" width="288" height="30"/>
-                                        <state key="normal" title="Go"/>
-                                        <connections>
-                                            <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X0S-dM-H0m"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -377,9 +362,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eux-Yp-IEA"/>
                     <connections>
-                        <outlet property="addComputerButton" destination="ieI-h2-uXV" id="ar9-fL-Bk5"/>
-                        <outlet property="addHumanButton" destination="cnI-nB-2vl" id="hk6-wg-vIQ"/>
-                        <outlet property="addPlayerLabel" destination="lbj-hQ-MZK" id="wCe-v6-tMY"/>
                         <outlet property="diceButtons" destination="VeV-a7-wgA" id="Ypv-i3-KPA"/>
                         <outlet property="die1" destination="eWW-gC-VJM" id="TWM-73-oWM"/>
                         <outlet property="die2" destination="diX-vB-zIP" id="hoz-Jw-6qC"/>
@@ -393,7 +375,6 @@
                         <outlet property="frozenDie4" destination="d5T-vg-zYg" id="Vop-dY-mPp"/>
                         <outlet property="frozenDie5" destination="beA-1B-F0s" id="iis-hy-UDy"/>
                         <outlet property="frozenDie6" destination="RvC-ow-YzK" id="hBs-FG-5E8"/>
-                        <outlet property="goButton" destination="dbC-IK-hCK" id="aJM-2V-Cmo"/>
                         <outlet property="playerName" destination="j6i-bS-sz1" id="7y5-KM-vmf"/>
                         <outlet property="playerScore" destination="NLz-Z2-39I" id="a4X-dh-Esk"/>
                         <outlet property="rollScore" destination="ihj-oH-n1P" id="cUf-ws-kN2"/>
