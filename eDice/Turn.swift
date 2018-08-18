@@ -9,7 +9,7 @@
 import Foundation
 
 class Turn {
-    
+
     // Create an array of dice sets
     // For each roll where they save a die, add that dice set to the array
     //  OR
@@ -27,14 +27,13 @@ class Turn {
     // Need to have a running total of turn score
     // 
     // Do you want to display the dice that have been roll and saved?
-    
+
     var turnScore: Int
     var rollScore: Int
-    
+
     init() {
         turnScore = 0
         rollScore = 0
     }
-    
-    
+
 }

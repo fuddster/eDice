@@ -68,8 +68,8 @@ class Player: NSObject {
     func totalTurnScore() -> Int {
         var total = 0
 
-        for t in turnScores {
-            total += t
+        for tScore in turnScores {
+            total += tScore
         }
 
         return total
@@ -78,8 +78,8 @@ class Player: NSObject {
     func totalRoundScore() -> Int {
         var total = 0
 
-        for t in roundScores {
-            total += t
+        for rScore in roundScores {
+            total += rScore
         }
 
         return total

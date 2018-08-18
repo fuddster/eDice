@@ -24,7 +24,7 @@ class Die {
     }
 
     init(value: Int) {
-        if ((value > 0) && (value < 7)) {
+        if (value > 0) && (value < 7) {
             self.value = value
         } else {
             self.value = 1
@@ -33,21 +33,21 @@ class Die {
     }
 
     func roll() {
-        if (!frozen) {
+        if !frozen {
             value = Int(arc4random_uniform(6) + 1)
         }
     }
-    
+
     func freeze() {
         frozen = true
     }
-    
+
     func unfreeze() {
         frozen = false
     }
-    
+
     func toggleFrozen() {
-        if (frozen) {
+        if frozen {
             frozen = false
         } else {
             frozen = true
@@ -58,7 +58,7 @@ class Die {
         selected = true
     }
     func toggleSelected() {
-        if (selected) {
+        if selected {
             selected = false
         } else {
             selected = true

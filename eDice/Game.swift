@@ -16,27 +16,27 @@ class Game: NSObject {
     var currentPlayerNum = 0
     var currentRound = 1
     var newTurn = true
-    var ds = DieSet()
+    var dieSet = DieSet()
 
     func addHumanPlayer() {
         players.append(Player())
     }
-    
-    func addHumanPlayer(withName name:String) {
+
+    func addHumanPlayer(withName name: String) {
         players.append(Player(withName: name))
     }
 
     func addComputerPlayer() {
         players.append(Player(withType: "computer"))
     }
-    
-    func addComputerPlayer(withSkill skill:String) {
+
+    func addComputerPlayer(withSkill skill: String) {
         players.append(Player(withType: "computer", withSkill: skill))
     }
-    
+
     func getCurrentPlayerName() -> String {
         var name = ""
-        if ((currentPlayer == nil) || (currentPlayer.name == "")) {
+        if (currentPlayer == nil) || (currentPlayer.name == "") {
             name = String(currentPlayerNum) + " - Player " + String(currentPlayerNum)
         } else {
             name = String(currentPlayerNum) + " - " + currentPlayer.name
@@ -45,25 +45,25 @@ class Game: NSObject {
     }
 
     func nextPlayer() {
-        if (players.isEmpty) {
+        if players.isEmpty {
             print("No players!")
             return
         }
 
-        if (currentPlayer == players.last) {
+        if currentPlayer == players.last {
             currentPlayer = players.first!
             currentPlayerNum = 1
             currentRound += 1
         } else {
-            let i = players.index(of: currentPlayer)
-            currentPlayer = players[i!+1]
+            let idx = players.index(of: currentPlayer)
+            currentPlayer = players[idx!+1]
             currentPlayerNum += 1
         }
         print ("New player: ", currentPlayer.name)
     }
 
     func go() {
-        if (players.isEmpty) {
+        if players.isEmpty {
             return
         }
 

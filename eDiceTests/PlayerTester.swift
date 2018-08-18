@@ -23,151 +23,151 @@ class PlayerTester: XCTestCase {
     }
 
     func testNoParameters() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.type, "human")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.skill, "low")
-        XCTAssertEqual(p.name, "")
+        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.skill, "low")
+        XCTAssertEqual(player.name, "")
     }
 
     func testWithName() {
-        let p = Player(withName: "Fudd")
+        let player = Player(withName: "Fudd")
 
-        XCTAssertEqual(p.type, "human")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.skill, "low")
-        XCTAssertEqual(p.name, "Fudd")
+        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.skill, "low")
+        XCTAssertEqual(player.name, "Fudd")
     }
 
     func testWithType() {
-        let p = Player(withType: "computer")
-        
-        XCTAssertEqual(p.type, "computer")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.skill, "low")
-        XCTAssertEqual(p.name, "Bob")
+        let player = Player(withType: "computer")
+
+        XCTAssertEqual(player.type, "computer")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.skill, "low")
+        XCTAssertEqual(player.name, "Bob")
     }
-    
+
     func testWithTypeSkill() {
-        let p = Player(withType: "computer", withSkill: "high")
-        
-        XCTAssertEqual(p.skill, "high")
-        XCTAssertEqual(p.type, "computer")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.name, "Bob")
+        let player = Player(withType: "computer", withSkill: "high")
+
+        XCTAssertEqual(player.skill, "high")
+        XCTAssertEqual(player.type, "computer")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.name, "Bob")
     }
 
     func testSetName() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.type, "human")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.skill, "low")
-        XCTAssertEqual(p.name, "")
+        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.skill, "low")
+        XCTAssertEqual(player.name, "")
 
-        p.setName(withName: "Fudd")
-        XCTAssertEqual(p.name, "Fudd")
+        player.setName(withName: "Fudd")
+        XCTAssertEqual(player.name, "Fudd")
     }
 
     func testGetName() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.getName(), "")
-        p.setName(withName: "Fudd")
-        XCTAssertEqual(p.getName(), "Fudd")
+        XCTAssertEqual(player.getName(), "")
+        player.setName(withName: "Fudd")
+        XCTAssertEqual(player.getName(), "Fudd")
     }
 
     func testSetSkill() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.type, "human")
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        XCTAssertEqual(p.skill, "low")
-        XCTAssertEqual(p.name, "")
+        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.skill, "low")
+        XCTAssertEqual(player.name, "")
 
-        p.setSkill(withSkill: "medium")
-        XCTAssertEqual(p.skill, "medium")
+        player.setSkill(withSkill: "medium")
+        XCTAssertEqual(player.skill, "medium")
     }
 
     func testGetSkill() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.getSkill(), "low")
-        p.setSkill(withSkill: "high")
-        XCTAssertEqual(p.getSkill(), "high")
+        XCTAssertEqual(player.getSkill(), "low")
+        player.setSkill(withSkill: "high")
+        XCTAssertEqual(player.getSkill(), "high")
     }
 
     func testAddToRoundScore() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        p.addToRoundScores(100)
-        XCTAssertEqual(p.roundScores[0], 100)
-        p.addToRoundScores(5)
-        XCTAssertEqual(p.roundScores[1], 5)
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        player.addToRoundScores(100)
+        XCTAssertEqual(player.roundScores[0], 100)
+        player.addToRoundScores(5)
+        XCTAssertEqual(player.roundScores[1], 5)
     }
 
     func testResetRoundScore() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.roundScores.isEmpty, true)
-        p.addToRoundScores(20)
-        XCTAssertEqual(p.roundScores[0], 20)
-        p.resetRoundScores()
-        XCTAssertEqual(p.roundScores.isEmpty, true)
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        player.addToRoundScores(20)
+        XCTAssertEqual(player.roundScores[0], 20)
+        player.resetRoundScores()
+        XCTAssertEqual(player.roundScores.isEmpty, true)
     }
 
     func testAddToTurnScore() {
-        let p = Player()
-        
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        p.addToTurnScores(100)
-        XCTAssertEqual(p.turnScores[0], 100)
-        p.addToTurnScores(5)
-        XCTAssertEqual(p.turnScores[1], 5)
-    }
-    
-    func testResetTurnScore() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.turnScores.isEmpty, true)
-        p.addToTurnScores(20)
-        XCTAssertEqual(p.turnScores[0], 20)
-        p.resetTurnScores()
-        XCTAssertEqual(p.turnScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        player.addToTurnScores(100)
+        XCTAssertEqual(player.turnScores[0], 100)
+        player.addToTurnScores(5)
+        XCTAssertEqual(player.turnScores[1], 5)
+    }
+
+    func testResetTurnScore() {
+        let player = Player()
+
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        player.addToTurnScores(20)
+        XCTAssertEqual(player.turnScores[0], 20)
+        player.resetTurnScores()
+        XCTAssertEqual(player.turnScores.isEmpty, true)
     }
 
     func testTotalTurnScore() {
-        let p = Player()
+        let player = Player()
 
-        XCTAssertEqual(p.totalTurnScore(), 0)
-        p.addToTurnScores(100)
-        XCTAssertEqual(p.turnScores[0], 100)
-        p.addToTurnScores(5)
-        XCTAssertEqual(p.turnScores[1], 5)
-        XCTAssertEqual(p.totalTurnScore(), 105)
-        p.resetTurnScores()
-        XCTAssertEqual(p.totalTurnScore(), 0)
+        XCTAssertEqual(player.totalTurnScore(), 0)
+        player.addToTurnScores(100)
+        XCTAssertEqual(player.turnScores[0], 100)
+        player.addToTurnScores(5)
+        XCTAssertEqual(player.turnScores[1], 5)
+        XCTAssertEqual(player.totalTurnScore(), 105)
+        player.resetTurnScores()
+        XCTAssertEqual(player.totalTurnScore(), 0)
     }
 
     func testTotalRoundScore() {
-        let p = Player()
-        
-        XCTAssertEqual(p.totalRoundScore(), 0)
-        p.addToRoundScores(100)
-        XCTAssertEqual(p.roundScores[0], 100)
-        p.addToRoundScores(5)
-        XCTAssertEqual(p.roundScores[1], 5)
-        XCTAssertEqual(p.totalRoundScore(), 105)
-        p.resetRoundScores()
-        XCTAssertEqual(p.totalRoundScore(), 0)
+        let player = Player()
+
+        XCTAssertEqual(player.totalRoundScore(), 0)
+        player.addToRoundScores(100)
+        XCTAssertEqual(player.roundScores[0], 100)
+        player.addToRoundScores(5)
+        XCTAssertEqual(player.roundScores[1], 5)
+        XCTAssertEqual(player.totalRoundScore(), 105)
+        player.resetRoundScores()
+        XCTAssertEqual(player.totalRoundScore(), 0)
     }
-    
+
 }

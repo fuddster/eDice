@@ -22,13 +22,13 @@ class MainMenuViewController: UIViewController {
     }
 
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //print(segue.identifier!)
         if segue.identifier == "SinglePlayerGame" {
-            let dest = segue.destination as! ViewController
-            let g = Game()
-            g.addHumanPlayer(withName: "Fudd")
-            dest.game = g
+            let dest = segue.destination as? ViewController
+            let game = Game()
+            game.addHumanPlayer(withName: "Fudd")
+            dest?.game = game
         }
     }
 
@@ -36,7 +36,6 @@ class MainMenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

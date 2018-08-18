@@ -39,18 +39,18 @@ class ViewController: UIViewController {
         rollButton.layer.cornerRadius = 10
         bankButton.layer.cornerRadius = 10
 
-        guard let ds = game?.ds else {
+        guard let dieSet = game?.dieSet else {
             return
         }
         // Do any additional setup after loading the view, typically from a nib.
-        ds.dice[0].button = die1
-        ds.dice[1].button = die2
-        ds.dice[2].button = die3
-        ds.dice[3].button = die4
-        ds.dice[4].button = die5
-        ds.dice[5].button = die6
+        dieSet.dice[0].button = die1
+        dieSet.dice[1].button = die2
+        dieSet.dice[2].button = die3
+        dieSet.dice[3].button = die4
+        dieSet.dice[4].button = die5
+        dieSet.dice[5].button = die6
 
-        for die in ds.dice {
+        for die in dieSet.dice {
             die.button.isUserInteractionEnabled = false
         }
 
@@ -63,29 +63,29 @@ class ViewController: UIViewController {
     }
 
     @IBAction func rollButton(_ sender: UIButton) {
-        guard let g = game else {
+        guard let game = game else {
             return
         }
 
         var rollButton = true
-        if (sender.restorationIdentifier == "Bank") {
+        if sender.restorationIdentifier == "Bank" {
             rollButton = false
         }
 
         // First roll - skip some of this
-        if (!g.newTurn) {
+        if !game.newTurn {
             // Can't roll without selecting at least one die
-            if (g.ds.countSelected() < 1){
+            if game.dieSet.countSelected() < 1 {
                 // Pop up warning
                 showAlert("You must select at least on die")
                 return
             }
         } else {
-            g.newTurn = false
+            game.newTurn = false
         }
 
         // User selected a dice that doesn't contribute to scoring
-        if (g.ds.nonScoringDiceSelected()) {
+        if game.dieSet.nonScoringDiceSelected() {
             // Pop up warning
             showAlert("All selected dice must contribute to the score")
             return
@@ -95,105 +95,108 @@ class ViewController: UIViewController {
         updateRollScore()
 
         // Update turn score
-        g.currentPlayer.addToTurnScores(g.ds.score())
-        turnScore.text = String(g.currentPlayer.totalTurnScore())
+        game.currentPlayer.addToTurnScores(game.dieSet.score())
+        turnScore.text = String(game.currentPlayer.totalTurnScore())
 
         // Move selected dice to frozen row
-        g.ds.moveSelectedToFrozen()
+        game.dieSet.moveSelectedToFrozen()
         updateDieView()
 
         // Reset if all dice selected
-        if (g.ds.allFrozen()) {
-            g.ds.unFreezeAll()
+        if game.dieSet.allFrozen() {
+            game.dieSet.unFreezeAll()
         }
-        
+
         // Disable dice button
-        for d in g.ds.dice {
-            if (d.frozen) {
-                d.button.isUserInteractionEnabled = false
+        for die in game.dieSet.dice {
+            if die.frozen {
+                die.button.isUserInteractionEnabled = false
             } else {
-                d.button.isUserInteractionEnabled = true
+                die.button.isUserInteractionEnabled = true
             }
         }
 
-        if (rollButton) {
-            g.ds.rollAll()
+        if rollButton {
+            game.dieSet.rollAll()
             updateDieView()
-            if (g.ds.score(false) == 0) {
+            if game.dieSet.score(false) == 0 {
                 // Bust - End of turn
-                g.newTurn = true
+                game.newTurn = true
                 nextPlayerSetup(true)
             }
         } else {
             // Bank button
-            g.currentPlayer.addToRoundScores(g.currentPlayer.totalTurnScore())
-            playerScore.text = String(g.currentPlayer.totalRoundScore())
-            g.newTurn = true
+            game.currentPlayer.addToRoundScores(game.currentPlayer.totalTurnScore())
+            playerScore.text = String(game.currentPlayer.totalRoundScore())
+            game.newTurn = true
             nextPlayerSetup(false)
         }
-        round.text = String(g.currentRound)
+        round.text = String(game.currentRound)
     }
 
     @IBAction func die1Tapped(_ sender: Any) {
-        game?.ds.dice[0].toggleSelected()
+        game?.dieSet.dice[0].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die2Tapped(_ sender: Any) {
-        game?.ds.dice[1].toggleSelected()
+        game?.dieSet.dice[1].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die3Tapped(_ sender: Any) {
-        game?.ds.dice[2].toggleSelected()
+        game?.dieSet.dice[2].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die4Tapped(_ sender: Any) {
-        game?.ds.dice[3].toggleSelected()
+        game?.dieSet.dice[3].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die5Tapped(_ sender: Any) {
-        game?.ds.dice[4].toggleSelected()
+        game?.dieSet.dice[4].toggleSelected()
         updateDieView()
     }
 
     @IBAction func die6Tapped(_ sender: Any) {
-        game?.ds.dice[5].toggleSelected()
+        game?.dieSet.dice[5].toggleSelected()
         updateDieView()
     }
 
-    func updateDieView()
-    {
-        guard let g = game else {
+    func blankDieView() {
+        die1.image = nil
+        die2.image = nil
+        die3.image = nil
+        die4.image = nil
+        die5.image = nil
+        die6.image = nil
+        frozenDie1.image = nil
+        frozenDie2.image = nil
+        frozenDie3.image = nil
+        frozenDie4.image = nil
+        frozenDie5.image = nil
+        frozenDie6.image = nil
+    }
+
+    func updateDieView() {
+        guard let game = game else {
             return
         }
-        
-        var dice = g.ds.dice
 
-        if (g.newTurn) {
-            die1.image = nil
-            die2.image = nil
-            die3.image = nil
-            die4.image = nil
-            die5.image = nil
-            die6.image = nil
-            frozenDie1.image = nil
-            frozenDie2.image = nil
-            frozenDie3.image = nil
-            frozenDie4.image = nil
-            frozenDie5.image = nil
-            frozenDie6.image = nil
+        var dice = game.dieSet.dice
+
+        if game.newTurn {
+            blankDieView()
             updateRollScore()
             return
         }
 
-        if (dice[0].frozen) {
+        if dice[0].frozen {
             frozenDie1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
             die1.image = nil
         } else {
-            if (dice[0].selected) {
+            if dice[0].selected {
                 die1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
             } else {
                 die1.image = UIImage(named: Die.normalDieAssets[dice[0].value]!)
@@ -201,23 +204,23 @@ class ViewController: UIViewController {
             frozenDie1.image = nil
         }
 
-        if (dice[1].frozen) {
+        if dice[1].frozen {
             frozenDie2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
             die2.image = nil
         } else {
-            if (dice[1].selected) {
+            if dice[1].selected {
                 die2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
             } else {
                 die2.image = UIImage(named: Die.normalDieAssets[dice[1].value]!)
             }
             frozenDie2.image = nil
         }
-        
-        if (dice[2].frozen) {
+
+        if dice[2].frozen {
             frozenDie3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
             die3.image = nil
         } else {
-            if (dice[2].selected) {
+            if dice[2].selected {
                 die3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
             } else {
                 die3.image = UIImage(named: Die.normalDieAssets[dice[2].value]!)
@@ -225,11 +228,11 @@ class ViewController: UIViewController {
             frozenDie3.image = nil
         }
 
-        if (dice[3].frozen) {
+        if dice[3].frozen {
             frozenDie4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
             die4.image = nil
         } else {
-            if (dice[3].selected) {
+            if dice[3].selected {
                 die4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
             } else {
                 die4.image = UIImage(named: Die.normalDieAssets[dice[3].value]!)
@@ -237,11 +240,11 @@ class ViewController: UIViewController {
             frozenDie4.image = nil
         }
 
-        if (dice[4].frozen) {
+        if dice[4].frozen {
             frozenDie5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
             die5.image = nil
         } else {
-            if (dice[4].selected) {
+            if dice[4].selected {
                 die5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
             } else {
                 die5.image = UIImage(named: Die.normalDieAssets[dice[4].value]!)
@@ -249,11 +252,11 @@ class ViewController: UIViewController {
             frozenDie5.image = nil
         }
 
-        if (dice[5].frozen) {
+        if dice[5].frozen {
             frozenDie6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
             die6.image = nil
         } else {
-            if (dice[5].selected) {
+            if dice[5].selected {
                 die6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
             } else {
                 die6.image = UIImage(named: Die.normalDieAssets[dice[5].value]!)
@@ -265,66 +268,67 @@ class ViewController: UIViewController {
     }
 
     func updateRollScore() {
-        guard let g = game else {
+        guard let game = game else {
             return
         }
-        
-        let rs = g.ds.score()
-        //print("Score = \(rs)")
-        //print("Turn Score = \(g.currentPlayer.totalTurnScore())")
-        rollScore.text = String(rs)
-        turnScore.text = String(g.currentPlayer.totalTurnScore() + rs)
+
+        let rScore = game.dieSet.score()
+        //print("Score = \(rScore)")
+        //print("Turn Score = \(game.currentPlayer.totalTurnScore())")
+        rollScore.text = String(rScore)
+        turnScore.text = String(game.currentPlayer.totalTurnScore() + rScore)
     }
 
     func nextPlayerSetup(_ bust: Bool = true) {
-        guard let g = game else {
+        guard let game = game else {
             return
         }
-        
+
         print("Next Player!")
-        g.currentPlayer.resetTurnScores()
-        g.ds.unSelectAll()
-        g.ds.unFreezeAll()
-        g.nextPlayer()
-        if (g.currentRound > g.numOfRounds) {
+        game.currentPlayer.resetTurnScores()
+        game.dieSet.unSelectAll()
+        game.dieSet.unFreezeAll()
+        game.nextPlayer()
+        if game.currentRound > game.numOfRounds {
             // Game over
             // Display final score
             showAlert("", "Game Over")
-            g.currentPlayer.resetTurnScores()
-            g.currentPlayer.resetRoundScores()
-            g.go()
+            game.currentPlayer.resetTurnScores()
+            game.currentPlayer.resetRoundScores()
+            game.go()
         } else {
-            var np = ""
+            var message = ""
             // Display next player pop up
-            if (bust) {
-                if (g.players.count != 1) {
-                    np = "Next player: \(g.currentPlayer.getName())"
+            if bust {
+                if game.players.count != 1 {
+                    message = "Next player: \(game.currentPlayer.getName())"
                 }
-                showAlert(np, "Bust!")
+                showAlert(message, "Bust!")
             } else {
-                showAlert(np, "Score Banked!")
+                showAlert(message, "Score Banked!")
             }
         }
-        playerName.text = g.currentPlayer.getName()
-        playerScore.text = String(g.currentPlayer.totalRoundScore())
+        playerName.text = game.currentPlayer.getName()
+        playerScore.text = String(game.currentPlayer.totalRoundScore())
     }
 
     func showAlert(_ message: String = "", _ title: String = "Alert") {
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: {_ in self.updateDieView() }))
+        alertController.addAction(UIAlertAction(title: "OK",
+                                                style: UIAlertActionStyle.default,
+                                                handler: {_ in self.updateDieView() }))
 
         self.present(alertController, animated: true, completion: nil)
     }
 
     func startGame() {
-        guard let g = game else {
+        guard let game = game else {
             return
         }
 
-        g.go()
-        round.text = String(g.currentRound)
-        playerName.text = g.currentPlayer.getName()
+        game.go()
+        round.text = String(game.currentRound)
+        playerName.text = game.currentPlayer.getName()
     }
 }
-
