@@ -382,9 +382,11 @@
                         <outlet property="rollScore" destination="ihj-oH-n1P" id="cUf-ws-kN2"/>
                         <outlet property="round" destination="d72-E0-OmH" id="j6M-yg-cVo"/>
                         <outlet property="turnScore" destination="QQt-Uj-Eez" id="FiL-bW-bYC"/>
+                        <segue destination="i53-YJ-daq" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="K75-qI-2gN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="i53-YJ-daq" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="6kD-8E-0cQ" userLabel="Die 1 Tap Gesture Recognizer">
                     <connections>
                         <action selector="die1Tapped:" destination="BYZ-38-t0r" id="DBm-s2-luQ"/>

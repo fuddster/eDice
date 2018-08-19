@@ -284,7 +284,6 @@ class ViewController: UIViewController {
             return
         }
 
-        print("Next Player!")
         game.currentPlayer.resetTurnScores()
         game.dieSet.unSelectAll()
         game.dieSet.unFreezeAll()
@@ -292,10 +291,22 @@ class ViewController: UIViewController {
         if game.currentRound > game.numOfRounds {
             // Game over
             // Display final score
-            showAlert("", "Game Over")
+            var message = "Game Over"
+            if game.numOfPlayers() == 1 {
+                message = "\nFinal Score: \(game.currentPlayer.totalRoundScore())"
+            }
             game.currentPlayer.resetTurnScores()
             game.currentPlayer.resetRoundScores()
             game.go()
+            let alert = UIAlertController(title: "Game Over", message: message, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK",
+                                         style: UIAlertActionStyle.default,
+                                         handler: { (_)in
+                self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+            })
+
+            alert.addAction(OKAction)
+            self.present(alert, animated: true, completion: nil)
         } else {
             var message = ""
             // Display next player pop up
@@ -330,5 +341,16 @@ class ViewController: UIViewController {
         game.go()
         round.text = String(game.currentRound)
         playerName.text = game.currentPlayer.getName()
+    }
+
+    @IBAction func gameOverButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Order Placed!", message: "Thank you for your order.\nWe'll ship it to you soon!", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+            (_)in
+            self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+        })
+
+        alert.addAction(OKAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }

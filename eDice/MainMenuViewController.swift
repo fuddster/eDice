@@ -11,6 +11,7 @@ import UIKit
 class MainMenuViewController: UIViewController {
 
     @IBOutlet weak var startSinglePlayerButton: UIButton!
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()

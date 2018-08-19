@@ -18,6 +18,10 @@ class Game: NSObject {
     var newTurn = true
     var dieSet = DieSet()
 
+    func numOfPlayers() -> Int {
+        return players.count
+    }
+
     func addHumanPlayer() {
         players.append(Player())
     }
@@ -59,7 +63,7 @@ class Game: NSObject {
             currentPlayer = players[idx!+1]
             currentPlayerNum += 1
         }
-        print ("New player: ", currentPlayer.name)
+        //print ("New player: ", currentPlayer.name)
     }
 
     func go() {
