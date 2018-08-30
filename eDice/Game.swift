@@ -31,11 +31,11 @@ class Game: NSObject {
     }
 
     func addComputerPlayer() {
-        players.append(Player(withType: "computer"))
+        players.append(Player(withType: "Beginner"))
     }
 
-    func addComputerPlayer(withSkill skill: String) {
-        players.append(Player(withType: "computer", withSkill: skill))
+    func addComputerPlayer(withType type: String) {
+        players.append(Player(withType: type))
     }
 
     func getCurrentPlayerName() -> String {

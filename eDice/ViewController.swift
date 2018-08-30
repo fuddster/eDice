@@ -342,15 +342,4 @@ class ViewController: UIViewController {
         round.text = String(game.currentRound)
         playerName.text = game.currentPlayer.getName()
     }
-
-    @IBAction func gameOverButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Order Placed!", message: "Thank you for your order.\nWe'll ship it to you soon!", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
-            (_)in
-            self.performSegue(withIdentifier: "unwindToMenu", sender: self)
-        })
-
-        alert.addAction(OKAction)
-        self.present(alert, animated: true, completion: nil)
-    }
 }

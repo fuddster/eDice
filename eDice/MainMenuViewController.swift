@@ -11,6 +11,8 @@ import UIKit
 class MainMenuViewController: UIViewController {
 
     @IBOutlet weak var startSinglePlayerButton: UIButton!
+    @IBOutlet weak var startMultiPlayerButton: UIButton!
+    @IBOutlet weak var startNetworkGameButton: UIButton!
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
@@ -20,6 +22,8 @@ class MainMenuViewController: UIViewController {
 
         //print(startSinglePlayerButton)
         startSinglePlayerButton.layer.cornerRadius = 10
+        startMultiPlayerButton.layer.cornerRadius = 10
+        startNetworkGameButton.layer.cornerRadius = 10
     }
 
     // MARK: - Navigation
@@ -29,6 +33,11 @@ class MainMenuViewController: UIViewController {
             let dest = segue.destination as? ViewController
             let game = Game()
             game.addHumanPlayer(withName: "Fudd")
+            dest?.game = game
+        }
+        if segue.identifier == "MultiPlayerGame" {
+            let dest = segue.destination as? GameSetupViewController
+            let game = Game()
             dest?.game = game
         }
     }

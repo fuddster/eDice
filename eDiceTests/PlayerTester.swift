@@ -25,50 +25,72 @@ class PlayerTester: XCTestCase {
     func testNoParameters() {
         let player = Player()
 
-        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.type, "Human")
         XCTAssertEqual(player.roundScores.isEmpty, true)
         XCTAssertEqual(player.turnScores.isEmpty, true)
-        XCTAssertEqual(player.skill, "low")
         XCTAssertEqual(player.name, "")
     }
 
     func testWithName() {
         let player = Player(withName: "Fudd")
 
-        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.type, "Human")
         XCTAssertEqual(player.roundScores.isEmpty, true)
         XCTAssertEqual(player.turnScores.isEmpty, true)
-        XCTAssertEqual(player.skill, "low")
         XCTAssertEqual(player.name, "Fudd")
     }
 
     func testWithType() {
-        let player = Player(withType: "computer")
+        let player = Player(withType: "Beginner")
 
-        XCTAssertEqual(player.type, "computer")
+        XCTAssertEqual(player.type, "Beginner")
         XCTAssertEqual(player.roundScores.isEmpty, true)
         XCTAssertEqual(player.turnScores.isEmpty, true)
-        XCTAssertEqual(player.skill, "low")
-        XCTAssertEqual(player.name, "Bob")
+        XCTAssertEqual(player.name, "")
     }
 
-    func testWithTypeSkill() {
-        let player = Player(withType: "computer", withSkill: "high")
+    func testWithTypeBeginner() {
+        let player = Player(withType: "Beginner")
 
-        XCTAssertEqual(player.skill, "high")
-        XCTAssertEqual(player.type, "computer")
+        XCTAssertEqual(player.type, "Beginner")
         XCTAssertEqual(player.roundScores.isEmpty, true)
         XCTAssertEqual(player.turnScores.isEmpty, true)
-        XCTAssertEqual(player.name, "Bob")
+        XCTAssertEqual(player.name, "")
+    }
+
+    func testWithTypeAverage() {
+        let player = Player(withType: "Average")
+
+        XCTAssertEqual(player.type, "Average")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.name, "")
+    }
+
+    func testWithTypeExpert() {
+        let player = Player(withType: "Expert")
+
+        XCTAssertEqual(player.type, "Expert")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.name, "")
+    }
+
+    func testWithTypeDefault() {
+        let player = Player(withType: "garbage")
+
+        XCTAssertEqual(player.type, "Beginner")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.name, "")
     }
 
     func testSetName() {
         let player = Player()
 
-        XCTAssertEqual(player.type, "human")
+        XCTAssertEqual(player.type, "Human")
         XCTAssertEqual(player.roundScores.isEmpty, true)
         XCTAssertEqual(player.turnScores.isEmpty, true)
-        XCTAssertEqual(player.skill, "low")
         XCTAssertEqual(player.name, "")
 
         player.setName(withName: "Fudd")
@@ -83,25 +105,35 @@ class PlayerTester: XCTestCase {
         XCTAssertEqual(player.getName(), "Fudd")
     }
 
-    func testSetSkill() {
-        let player = Player()
+    func testGetType() {
+        var player = Player()
+        XCTAssertEqual("Human", player.getType())
 
-        XCTAssertEqual(player.type, "human")
-        XCTAssertEqual(player.roundScores.isEmpty, true)
-        XCTAssertEqual(player.turnScores.isEmpty, true)
-        XCTAssertEqual(player.skill, "low")
-        XCTAssertEqual(player.name, "")
+        player = Player(withType: "Average")
+        XCTAssertEqual("Average", player.getType())
 
-        player.setSkill(withSkill: "medium")
-        XCTAssertEqual(player.skill, "medium")
+        player = Player(withType: "Expert")
+        XCTAssertEqual("Expert", player.getType())
+
+        player = Player(withType: "garbage")
+        XCTAssertEqual("Beginner", player.getType())
+
+        player = Player(withName: "Fuudd")
+        XCTAssertEqual("Human", player.getType())
     }
 
-    func testGetSkill() {
-        let player = Player()
+    func testIsHuman() {
+        var player = Player()
 
-        XCTAssertEqual(player.getSkill(), "low")
-        player.setSkill(withSkill: "high")
-        XCTAssertEqual(player.getSkill(), "high")
+        XCTAssertEqual(true, player.isHuman())
+        player = Player(withName: "Fudd")
+        XCTAssertEqual(true, player.isHuman())
+        player = Player(withType: "Beginner")
+        XCTAssertEqual(false, player.isHuman())
+        player = Player(withType: "Average")
+        XCTAssertEqual(false, player.isHuman())
+        player = Player(withType: "Expert")
+        XCTAssertEqual(false, player.isHuman())
     }
 
     func testAddToRoundScore() {

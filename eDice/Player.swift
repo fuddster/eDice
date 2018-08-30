@@ -9,11 +9,11 @@
 import Foundation
 
 class Player: NSObject {
-    var type = "human"
+    var type = "Human"
     var turnScores = [Int]()
     var roundScores = [Int]()
     var name = ""
-    var skill = "low"
+    let validTypes = ["Beginner", "Average", "Expert"]
 
     override init() {
     }
@@ -23,14 +23,11 @@ class Player: NSObject {
     }
 
     init(withType type: String) {
-        self.type = type
-        self.name = "Bob"
-    }
-
-    init(withType type: String, withSkill skill: String) {
-        self.type = type
-        self.skill = skill
-        self.name = "Bob"
+        if validTypes.contains(type) {
+            self.type = type
+        } else {
+            self.type = validTypes[0]
+        }
     }
 
     func setName(withName name: String) {
@@ -41,12 +38,24 @@ class Player: NSObject {
         return name
     }
 
-    func setSkill(withSkill skill: String) {
-        self.skill = skill
+    func setType(withType type: String) {
+        if validTypes.contains(type) {
+            self.type = type
+        } else {
+            self.type = validTypes[0]
+        }
     }
 
-    func getSkill() -> String {
-        return skill
+    func getType() -> String {
+        return type
+    }
+
+    func isHuman() -> Bool {
+        if type == "Human" {
+            return true
+        }
+
+        return false
     }
 
     func addToTurnScores(_ num: Int) {
