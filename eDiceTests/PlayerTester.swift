@@ -105,6 +105,24 @@ class PlayerTester: XCTestCase {
         XCTAssertEqual(player.getName(), "Fudd")
     }
 
+    func testSetType() {
+        let player = Player()
+
+        XCTAssertEqual(player.type, "Human")
+        XCTAssertEqual(player.roundScores.isEmpty, true)
+        XCTAssertEqual(player.turnScores.isEmpty, true)
+        XCTAssertEqual(player.name, "")
+
+        player.setType(withType: "Beginner")
+        XCTAssertEqual(player.type, "Beginner")
+        player.setType(withType: "Average")
+        XCTAssertEqual(player.type, "Average")
+        player.setType(withType: "Expert")
+        XCTAssertEqual(player.type, "Expert")
+        player.setType(withType: "XXXXX")
+        XCTAssertEqual(player.type, player.validTypes[0])
+    }
+
     func testGetType() {
         var player = Player()
         XCTAssertEqual("Human", player.getType())

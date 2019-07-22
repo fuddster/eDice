@@ -14,6 +14,7 @@
 		0A677DAF1EB767470071CD81 /* ToDo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0A677DAE1EB767470071CD81 /* ToDo.txt */; };
 		0A722BE81EBB55DD00DD310B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A722BE71EBB55DD00DD310B /* Player.swift */; };
 		0A722BEC1EBE7EE700DD310B /* PlayerTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A722BEB1EBE7EE700DD310B /* PlayerTester.swift */; };
+		0AAECC3E22E54970003F180C /* TurnTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAECC3D22E54970003F180C /* TurnTester.swift */; };
 		0AC8E9271E1423B200912E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9261E1423B200912E40 /* AppDelegate.swift */; };
 		0AC8E9291E1423B200912E40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9281E1423B200912E40 /* ViewController.swift */; };
 		0AC8E92C1E1423B200912E40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC8E92A1E1423B200912E40 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		0A677DAE1EB767470071CD81 /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		0A722BE71EBB55DD00DD310B /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0A722BEB1EBE7EE700DD310B /* PlayerTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTester.swift; sourceTree = "<group>"; };
+		0AAECC3D22E54970003F180C /* TurnTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTester.swift; sourceTree = "<group>"; };
 		0AC8E9231E1423B200912E40 /* eDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC8E9261E1423B200912E40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC8E9281E1423B200912E40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				0A722BEB1EBE7EE700DD310B /* PlayerTester.swift */,
+				0AAECC3D22E54970003F180C /* TurnTester.swift */,
 				0AC8E93B1E1423B200912E40 /* eDiceTests.swift */,
 				0AC8E9581E179F3600912E40 /* DieTester.swift */,
 				0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */,
@@ -347,6 +350,7 @@
 				0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */,
 				0AECDD51211A906B008DE7D5 /* GameTester.swift in Sources */,
 				0A722BEC1EBE7EE700DD310B /* PlayerTester.swift in Sources */,
+				0AAECC3E22E54970003F180C /* TurnTester.swift in Sources */,
 				0AC8E93C1E1423B200912E40 /* eDiceTests.swift in Sources */,
 				0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */,
 			);

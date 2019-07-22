@@ -57,6 +57,7 @@ class Die {
     func select() {
         selected = true
     }
+
     func toggleSelected() {
         if selected {
             selected = false

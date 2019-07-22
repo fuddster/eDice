@@ -179,4 +179,22 @@ class DieTester: XCTestCase {
         die.toggleFrozen()
         XCTAssertEqual(die.frozen, false)
     }
+
+    func testSelect() {
+        let die = Die()
+        XCTAssertEqual(die.selected, false)
+        die.select()
+        XCTAssertEqual(die.selected, true)
+        die.select()
+        XCTAssertEqual(die.selected, true)
+    }
+
+    func testToggleSelected() {
+        let die = Die()
+        XCTAssertEqual(die.selected, false)
+        die.toggleSelected()
+        XCTAssertEqual(die.selected, true)
+        die.toggleSelected()
+        XCTAssertEqual(die.selected, false)
+    }
 }

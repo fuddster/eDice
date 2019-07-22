@@ -26,10 +26,28 @@ class GameTester: XCTestCase {
         let game = Game()
 
         XCTAssertEqual(0, game.players.count)
+        XCTAssertEqual(0, game.numOfPlayers())
         XCTAssertEqual(10, game.numOfRounds)
         XCTAssertEqual(0, game.currentPlayerNum)
         XCTAssertEqual(1, game.currentRound)
         XCTAssertEqual(true, game.newTurn)
+    }
+
+    func testNumOfPlayers() {
+        let game = Game()
+        XCTAssertEqual(0, game.numOfPlayers())
+        game.addHumanPlayer()
+        XCTAssertEqual(1, game.numOfPlayers())
+        game.addHumanPlayer()
+        XCTAssertEqual(2, game.numOfPlayers())
+        game.addHumanPlayer()
+        XCTAssertEqual(3, game.numOfPlayers())
+        game.addHumanPlayer()
+        XCTAssertEqual(4, game.numOfPlayers())
+        game.addHumanPlayer()
+        XCTAssertEqual(5, game.numOfPlayers())
+        game.addHumanPlayer()
+        XCTAssertEqual(6, game.numOfPlayers())
     }
 
     func testAddHumanPlayer() {
