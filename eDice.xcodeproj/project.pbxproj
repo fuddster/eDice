@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A31595121096BA40042D293 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A31595021096BA40042D293 /* MainMenuViewController.swift */; };
-		0A3EBBED212911930018CC61 /* GameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBBEC212911930018CC61 /* GameSetupViewController.swift */; };
 		0A3EBBEF212CC1770018CC61 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBBEE212CC1770018CC61 /* PlayersViewController.swift */; };
 		0A3EBBF1212D078D0018CC61 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBBF0212D078D0018CC61 /* SampleData.swift */; };
 		0A3EBBF52130AE5D0018CC61 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBBF42130AE5D0018CC61 /* PlayerDetailsViewController.swift */; };
@@ -26,6 +25,7 @@
 		0AC8E9591E179F3600912E40 /* DieTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E9581E179F3600912E40 /* DieTester.swift */; };
 		0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95A1E19A73800912E40 /* DieSet.swift */; };
 		0AC8E95D1E19CE7C00912E40 /* DieSetTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */; };
+		0AD9278321389B4500BFCD6F /* GameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD9278221389B4500BFCD6F /* GameSetupViewController.swift */; };
 		0AECDD51211A906B008DE7D5 /* GameTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECDD50211A906B008DE7D5 /* GameTester.swift */; };
 		0AF668DA1E3DB0310021B744 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF668D91E3DB0310021B744 /* Turn.swift */; };
 		0AF668DC1E3DB3A30021B744 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF668DB1E3DB3A30021B744 /* Game.swift */; };
@@ -50,7 +50,6 @@
 
 /* Begin PBXFileReference section */
 		0A31595021096BA40042D293 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		0A3EBBEC212911930018CC61 /* GameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetupViewController.swift; sourceTree = "<group>"; };
 		0A3EBBEE212CC1770018CC61 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		0A3EBBF0212D078D0018CC61 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		0A3EBBF42130AE5D0018CC61 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		0AC8E9581E179F3600912E40 /* DieTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieTester.swift; sourceTree = "<group>"; };
 		0AC8E95A1E19A73800912E40 /* DieSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSet.swift; sourceTree = "<group>"; };
 		0AC8E95C1E19CE7C00912E40 /* DieSetTester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieSetTester.swift; sourceTree = "<group>"; };
+		0AD9278221389B4500BFCD6F /* GameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetupViewController.swift; sourceTree = "<group>"; };
 		0AECDD50211A906B008DE7D5 /* GameTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTester.swift; sourceTree = "<group>"; };
 		0AF668D91E3DB0310021B744 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		0AF668DB1E3DB3A30021B744 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 				0AC8E92A1E1423B200912E40 /* Main.storyboard */,
 				0A3EBBEE212CC1770018CC61 /* PlayersViewController.swift */,
 				0A3EBBF42130AE5D0018CC61 /* PlayerDetailsViewController.swift */,
-				0A3EBBEC212911930018CC61 /* GameSetupViewController.swift */,
 				0A31595021096BA40042D293 /* MainMenuViewController.swift */,
+				0AD9278221389B4500BFCD6F /* GameSetupViewController.swift */,
 				0AC8E92D1E1423B200912E40 /* Assets.xcassets */,
 				0AC8E92F1E1423B200912E40 /* LaunchScreen.storyboard */,
 				0AC8E9321E1423B200912E40 /* Info.plist */,
@@ -234,23 +234,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Ozmium Enterprises";
 				TargetAttributes = {
 					0AC8E9221E1423B200912E40 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					0AC8E9361E1423B200912E40 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0AC8E9221E1423B200912E40;
 					};
 					0AC8E9411E1423B200912E40 = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0AC8E9221E1423B200912E40;
 					};
@@ -258,7 +258,7 @@
 			};
 			buildConfigurationList = 0AC8E91E1E1423B100912E40 /* Build configuration list for PBXProject "eDice" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -331,11 +331,11 @@
 				0AF668DC1E3DB3A30021B744 /* Game.swift in Sources */,
 				0A3EBBEF212CC1770018CC61 /* PlayersViewController.swift in Sources */,
 				0AC8E9291E1423B200912E40 /* ViewController.swift in Sources */,
-				0A3EBBED212911930018CC61 /* GameSetupViewController.swift in Sources */,
 				0AC8E95B1E19A73800912E40 /* DieSet.swift in Sources */,
 				0A722BE81EBB55DD00DD310B /* Player.swift in Sources */,
 				0A3EBBF1212D078D0018CC61 /* SampleData.swift in Sources */,
 				0AC8E9271E1423B200912E40 /* AppDelegate.swift in Sources */,
+				0AD9278321389B4500BFCD6F /* GameSetupViewController.swift in Sources */,
 				0AC8E9571E17961100912E40 /* Die.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -458,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -514,8 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ozmium.eDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -527,8 +528,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ozmium.eDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -541,8 +541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ozmium.eDiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eDice.app/eDice";
 			};
 			name = Debug;
@@ -556,8 +555,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ozmium.eDiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eDice.app/eDice";
 			};
 			name = Release;
@@ -570,8 +568,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ozmium.eDiceUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = eDice;
 			};
 			name = Debug;
@@ -584,8 +581,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ozmium.eDiceUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = eDice;
 			};
 			name = Release;

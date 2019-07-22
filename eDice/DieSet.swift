@@ -82,12 +82,8 @@ class DieSet {
             die.scoring = false
         }
 
-        if (num1 == 1) &&
-            (num2 == 1) &&
-            (num3 == 1) &&
-            (num4 == 1) &&
-            (num5 == 1) &&
-            (num6 == 1) {
+        if (num1 == 1) && (num2 == 1) && (num3 == 1) &&
+           (num4 == 1) && (num5 == 1) && (num6 == 1) {
                 for die in dice {
                     die.scoring = true
                 }

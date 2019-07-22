@@ -179,12 +179,26 @@ class ViewController: UIViewController {
         frozenDie6.image = nil
     }
 
+    func setDieImage(_ dice: [Die], _ die: UIImageView, _ frozenDie: UIImageView, _ idx: Int) {
+        if dice[idx].frozen {
+            frozenDie.image = UIImage(named: Die.selectedDieAssets[dice[idx].value]!)
+            die.image = nil
+        } else {
+            if dice[idx].selected {
+                die.image = UIImage(named: Die.selectedDieAssets[dice[idx].value]!)
+            } else {
+                die.image = UIImage(named: Die.normalDieAssets[dice[idx].value]!)
+            }
+            frozenDie.image = nil
+        }
+    }
+
     func updateDieView() {
         guard let game = game else {
             return
         }
 
-        var dice = game.dieSet.dice
+        let dice = game.dieSet.dice
 
         if game.newTurn {
             blankDieView()
@@ -192,77 +206,12 @@ class ViewController: UIViewController {
             return
         }
 
-        if dice[0].frozen {
-            frozenDie1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
-            die1.image = nil
-        } else {
-            if dice[0].selected {
-                die1.image = UIImage(named: Die.selectedDieAssets[dice[0].value]!)
-            } else {
-                die1.image = UIImage(named: Die.normalDieAssets[dice[0].value]!)
-            }
-            frozenDie1.image = nil
-        }
-
-        if dice[1].frozen {
-            frozenDie2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
-            die2.image = nil
-        } else {
-            if dice[1].selected {
-                die2.image = UIImage(named: Die.selectedDieAssets[dice[1].value]!)
-            } else {
-                die2.image = UIImage(named: Die.normalDieAssets[dice[1].value]!)
-            }
-            frozenDie2.image = nil
-        }
-
-        if dice[2].frozen {
-            frozenDie3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
-            die3.image = nil
-        } else {
-            if dice[2].selected {
-                die3.image = UIImage(named: Die.selectedDieAssets[dice[2].value]!)
-            } else {
-                die3.image = UIImage(named: Die.normalDieAssets[dice[2].value]!)
-            }
-            frozenDie3.image = nil
-        }
-
-        if dice[3].frozen {
-            frozenDie4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
-            die4.image = nil
-        } else {
-            if dice[3].selected {
-                die4.image = UIImage(named: Die.selectedDieAssets[dice[3].value]!)
-            } else {
-                die4.image = UIImage(named: Die.normalDieAssets[dice[3].value]!)
-            }
-            frozenDie4.image = nil
-        }
-
-        if dice[4].frozen {
-            frozenDie5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
-            die5.image = nil
-        } else {
-            if dice[4].selected {
-                die5.image = UIImage(named: Die.selectedDieAssets[dice[4].value]!)
-            } else {
-                die5.image = UIImage(named: Die.normalDieAssets[dice[4].value]!)
-            }
-            frozenDie5.image = nil
-        }
-
-        if dice[5].frozen {
-            frozenDie6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
-            die6.image = nil
-        } else {
-            if dice[5].selected {
-                die6.image = UIImage(named: Die.selectedDieAssets[dice[5].value]!)
-            } else {
-                die6.image = UIImage(named: Die.normalDieAssets[dice[5].value]!)
-            }
-            frozenDie6.image = nil
-        }
+        setDieImage(dice, die1, frozenDie1, 0)
+        setDieImage(dice, die2, frozenDie2, 1)
+        setDieImage(dice, die3, frozenDie3, 2)
+        setDieImage(dice, die4, frozenDie4, 3)
+        setDieImage(dice, die5, frozenDie5, 4)
+        setDieImage(dice, die6, frozenDie6, 5)
 
         updateRollScore()
     }
@@ -300,7 +249,7 @@ class ViewController: UIViewController {
             game.go()
             let alert = UIAlertController(title: "Game Over", message: message, preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK",
-                                         style: UIAlertActionStyle.default,
+                                         style: UIAlertAction.Style.default,
                                          handler: { (_)in
                 self.performSegue(withIdentifier: "unwindToMenu", sender: self)
             })
@@ -325,9 +274,9 @@ class ViewController: UIViewController {
 
     func showAlert(_ message: String = "", _ title: String = "Alert") {
         let alertController = UIAlertController(title: title, message:
-            message, preferredStyle: UIAlertControllerStyle.alert)
+            message, preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK",
-                                                style: UIAlertActionStyle.default,
+                                                style: UIAlertAction.Style.default,
                                                 handler: {_ in self.updateDieView() }))
 
         self.present(alertController, animated: true, completion: nil)

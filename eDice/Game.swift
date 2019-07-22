@@ -59,7 +59,7 @@ class Game: NSObject {
             currentPlayerNum = 1
             currentRound += 1
         } else {
-            let idx = players.index(of: currentPlayer)
+            let idx = players.firstIndex(of: currentPlayer)
             currentPlayer = players[idx!+1]
             currentPlayerNum += 1
         }
